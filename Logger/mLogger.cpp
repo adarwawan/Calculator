@@ -16,6 +16,14 @@ int main() {
   int n;
   printf("Masukkan angka : "); cin >> n;
   logger.ShowMem(n);
+  
   logger.UndoEquation(4);
+  printf("Abis Undo 4 : \n");
+  logger.ShowMemAll();
+  
+  printf("Masukkan redo : "); cin >> n;
+  logger.RedoEquation(n);
+  logger.ShowMemAll();
+  
   return 0;
 }

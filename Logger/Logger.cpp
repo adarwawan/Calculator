@@ -93,17 +93,21 @@ void Logger::ShowMem(int n) {
       if(_equations[ptEq].GetID() > _commands[ptCom].GetID()) {
         printf("> Perintah terakhir (equation) %2d : %s\n", index,
           _equations[ptEq].GetSentence().c_str());
+          ptEq--;
       } else {
         printf("> Perintah terakhir (command) %3d : %s\n", index,
           _commands[ptCom].GetSentence().c_str());
+        ptCom--;
       }
     } else if(ptEq >= 0) {
       printf("> Perintah terakhir (equation) %2d : %s\n", index,
         _equations[ptEq].GetSentence().c_str());
+      ptEq--;
     } else {
       assert(ptCom >= 0);
       printf("> Perintah terakhir (command) %3d : %s\n", index,
         _commands[ptCom].GetSentence().c_str());
+      ptCom--;
     }
     n--;
   }
@@ -117,19 +121,23 @@ void Logger::ShowMemAll() {
     ++index;
     if(ptEq >= 0 && ptCom >= 0) {
       if(_equations[ptEq].GetID() > _commands[ptCom].GetID()) {
-        printf("> Perintah terakhir %4d : %s\n", index,
+        printf("> Perintah terakhir (equation) %2d : %s\n", index,
           _equations[ptEq].GetSentence().c_str());
+        ptEq--;
       } else {
-        printf("> Perintah terakhir %4d : %s\n", index,
+        printf("> Perintah terakhir (command) %3d : %s\n", index,
           _commands[ptCom].GetSentence().c_str());
+        ptCom--;
       }
     } else if(ptEq >= 0) {
-      printf("> Perintah terakhir %4d : %s\n", index,
+      printf("> Perintah terakhir (equation) %2d : %s\n", index,
         _equations[ptEq].GetSentence().c_str());
+      ptEq--;
     } else {
       assert(ptCom >= 0);
-      printf("> Perintah terakhir %4d : %s\n", index,
+      printf("> Perintah terakhir (command) %3d : %s\n", index,
         _commands[ptCom].GetSentence().c_str());
+      ptCom--;
     }
   }
 }

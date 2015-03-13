@@ -17,7 +17,8 @@ Log::Log(const Log& log) {
 
 Log& Log::operator=(const Log& log) {
   _id = log._id;
-  _sentence = log._sentence;  
+  _sentence = log._sentence;
+  return *this;
 }
 
 Log::~Log() {

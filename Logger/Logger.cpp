@@ -24,9 +24,26 @@ Logger::Logger(const Logger& logger) {
   _sizeEquations = logger._sizeEquations;
 }
 
+Logger& Logger::operator=(const Logger& logger) {
+  _commands = logger._commands;
+  _equations = logger._equations;
+  _sizeEquations = logger._sizeEquations;
+  return *this;
+}
+
 Logger::~Logger() {
   _commands.clear();
   _equations.clear();
+}
+
+Log Logger::GetCommand(int i) {
+  assert(0 <= i && i < _commands.size());
+  return _commands[i];
+}
+
+Log Logger::GetEquation(int i) {
+  assert(0 <= i && i < _sizeEquations);
+  return _equations[i];
 }
 
 void Logger::Clear() {
@@ -74,18 +91,18 @@ void Logger::ShowMem(int n) {
     ++index;
     if(ptEq >= 0 && ptCom >= 0) {
       if(_equations[ptEq].GetID() > _commands[ptCom].GetID()) {
-        printf("> Perintah terakhir %4d : %s\n", index,
+        printf("> Perintah terakhir (equation) %2d : %s\n", index,
           _equations[ptEq].GetSentence().c_str());
       } else {
-        printf("> Perintah terakhir %4d : %s\n", index,
+        printf("> Perintah terakhir (command) %3d : %s\n", index,
           _commands[ptCom].GetSentence().c_str());
       }
     } else if(ptEq >= 0) {
-      printf("> Perintah terakhir %4d : %s\n", index,
+      printf("> Perintah terakhir (equation) %2d : %s\n", index,
         _equations[ptEq].GetSentence().c_str());
     } else {
       assert(ptCom >= 0);
-      printf("> Perintah terakhir %4d : %s\n", index,
+      printf("> Perintah terakhir (command) %3d : %s\n", index,
         _commands[ptCom].GetSentence().c_str());
     }
     n--;
@@ -115,9 +132,5 @@ void Logger::ShowMemAll() {
         _commands[ptCom].GetSentence().c_str());
     }
   }
-}
-
-int main() {
-  return 0;
 }
 

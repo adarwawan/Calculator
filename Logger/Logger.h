@@ -20,6 +20,10 @@ public:
   Logger& operator=(const Logger&);
   ~Logger();
   
+  // getter and setter
+  Log GetCommand(int);
+  Log GetEquation(int);
+  
   void Clear();
   void ClearCommands();
   void ClearEquations();

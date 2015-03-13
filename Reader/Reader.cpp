@@ -22,6 +22,7 @@ Reader::Reader(const Reader& r) {
 Reader& Reader::operator=(const Reader& r) {
   _sentence = r._sentence;
   _isEquation = r._isEquation;
+  return *this;
 }
 
 Reader::~Reader() {

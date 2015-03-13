@@ -13,8 +13,6 @@ public:
   ~vector();
   
   // capacity
-  T* begin();
-  T* end();
   int size();
   int max_size();
   void resize(int);
@@ -73,16 +71,6 @@ vector<T>& vector<T>::operator=(vector<T> v) {
 template <class T>
 vector<T>::~vector() {
   delete[] _tab;
-}
-
-template <class T>
-T* vector<T>::begin() {
-  return (T*) _tab;
-}
-
-template <class T>
-T* vector<T>::end() {
-  return (T*) (_tab + _size);
 }
 
 template <class T>

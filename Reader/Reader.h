@@ -2,7 +2,9 @@
 #define __READER_H_
 
 #include <iostream>
+#include <sstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -15,6 +17,8 @@ public:
   
   // membaca perintah dari user sekaligus meng-update data member isEquation
   void Read();
+  string GetSentence();
+  bool IsEquation();
   
 private:
   void _UpdateIsEquation();

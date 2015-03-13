@@ -33,13 +33,24 @@ void Reader::Read() {
   _UpdateIsEquation();
 }
 
+string Reader::GetSentence() {
+  return _sentence;
+}
+
+bool Reader::IsEquation() {
+  return _isEquation;
+}
+
 void Reader::_UpdateIsEquation() {
   stringstream ss(_sentence);
   string firstWord;
   ss >> firstWord;
-  for(int i = 0; i < )
-}
-
-int main() {
-  return 0;
+  int size = sizeof(_commands) / sizeof(*_commands);
+  for(int i = 0; i < size; i++) {
+    if(firstWord == _commands[i]) {
+      _isEquation = false;
+      return;
+    }
+  }
+  _isEquation = true;
 }

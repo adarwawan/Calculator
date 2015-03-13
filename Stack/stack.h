@@ -1,3 +1,6 @@
+#ifndef __STACK_H__
+#define __STACK_H__
+
 #include <cstdlib>
 #include <cassert>
 
@@ -23,14 +26,14 @@ template< class T >
 class stack {
   public:
     stack();
-    stack(stack<T>& );
+    stack(const stack<T>& );
     ~stack();
-    stack<T>& operator=(stack<T>& );
+    stack<T>& operator=(const stack<T>& );
     
     bool empty();
     int size();
     T& top();
-    void push(T);
+    void push(const T&);
     void pop();
     
   private:
@@ -85,7 +88,7 @@ stack<T>::stack() {
   _top = NULL;
 }
 template< class T >
-stack<T>::stack(stack<T>& S) {
+stack<T>::stack(const stack<T>& S) {
   _size = S._size;
   list<T> * src_temp = S._top;
   if(src_temp != NULL) {
@@ -111,7 +114,7 @@ stack<T>::~stack() {
   }  
 }
 template< class T >
-stack<T>& stack<T>::operator=(stack<T>& S) {
+stack<T>& stack<T>::operator=(const stack<T>& S) {
   /* Delete last stack */
   list<T> * del_temp;
   while(_top != NULL) {
@@ -133,7 +136,7 @@ stack<T>& stack<T>::operator=(stack<T>& S) {
       src_temp = src_temp->GetNext();
     }
   }
-  return S;
+  return *this;
 }
 template< class T >
 bool stack<T>::empty() {
@@ -148,7 +151,7 @@ T& stack<T>::top() {
   return _top->GetVal();
 }
 template< class T >
-void stack<T>::push(T _new) {
+void stack<T>::push(const T& _new) {
   _top = new list<T>(_new, _top);
   _size++;
 }
@@ -160,3 +163,5 @@ void stack<T>::pop() {
   delete delTop;
   _size--;
 }
+
+#endif

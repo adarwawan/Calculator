@@ -1,18 +1,18 @@
 1. Command
-a) Manager
-b) Reader
-c) Logger
-d) Saver
+a) Manager		-> DM : const int Oper; const int Post; const int Angka;
+b) Reader		-> DM : String S; bool Tanda;
+c) Logger		-> DM : Vector of String Command; Vector of String Equation;
+d) Saver		-> DM : char* name;
 
 2. Equation
-a) Equation
+a) Equation		-> DM : Vector of Token T; String strEq;
 b) Equation Exception
 
 3. Token
-a) Token
-b) Logics
-c) Number
-d) Number Romawi
+a) Token		-> DM : string SymToken; boolean IsOperator;
+b) Logics		-> DM : bool tf;
+c) Number		-> DM : int rilNumber;
+d) Number Romawi	
 e) Number Arab
 
 4. Vektor

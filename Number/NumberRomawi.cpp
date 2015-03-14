@@ -10,19 +10,19 @@ NumberRomawi::NumberRomawi(string s){
 	_nilai = toInt(s);
 }
 
-Number NumberRomawi::operator* (const Number& N){
+Number& NumberRomawi::operator* (const Number& N){
 	Point N1;
 	N1._nilai(_nilai*N._nilai);
 	return N1;
 }
 
-Number NumberRomawi::operator+ (const Number& N){
+Number& NumberRomawi::operator+ (const Number& N){
 	Point N1;
 	N1._nilai(_nilai + N._nilai);
 	return N1;
 }
 
-Number NumberRomawi::operator- (const Number& N){
+Number& NumberRomawi::operator- (const Number& N){
 	Point N1;
 	N1._nilai(_nilai - N._nilai);
 	return N1;
@@ -31,6 +31,12 @@ Number NumberRomawi::operator- (const Number& N){
 Number& NumberRomawi::operator/ (const Number& N){
 	Point N1;
 	N1._nilai(_nilai / N._nilai);
+	return N1;
+}
+
+Number& NumberRomawi::operator% (const Number&){
+	Point N1;
+	N1._nilai(_nilai % N._nilai);
 	return N1;
 }
 

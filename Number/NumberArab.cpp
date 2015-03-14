@@ -28,6 +28,12 @@ Number& NumberArab::operator- (const Number& N){
 	return N1;
 }
 
+Number& NumberArab::operator% (const Number&){
+	Point N1;
+	N1._nilai(_nilai % N._nilai);
+	return N1;
+}
+
 Number& NumberArab::operator/ (const Number& N){
 	Point N1;
 	N1._nilai(_nilai / N._nilai);

@@ -44,11 +44,17 @@ void Token::SetSymToken(string S) {
 
 /* Other Method */
 bool Token::_IdentifyToken() {
-  for (int i = 0; i < 10; ++i)
+  if ((_symToken[0] == '-') && (_symToken.length != 0))
   {
-    if (_symToken[0] == '0' + i) {
-      return false;
-    }
+    return false;
   }
-  return true;
+  else {
+    for (int i = 0; i < 10; ++i)
+    {
+      if (_symToken[0] == '0' + i) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

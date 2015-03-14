@@ -34,7 +34,7 @@ Number& NumberRomawi::operator/ (const Number& N){
 	return N1;
 }
 
-Number& NumberRomawi::operator= (const Number&){
+NumberRomawi& NumberRomawi::operator= (const NumberRomawi&){
 	Point N1;
 	N1._nilai = N._nilai;
 	return N1;

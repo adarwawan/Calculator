@@ -40,7 +40,7 @@ Number& NumberArab::operator/ (const Number& N){
 	return N1;
 }
 
-Number& NumberArab::operator= (const Number&){
+NumberArab& NumberArab::operator= (const NumberArab&){
 	Point N1;
 	N1._nilai = N._nilai;
 	return N1;

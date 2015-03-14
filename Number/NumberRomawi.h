@@ -13,7 +13,7 @@ public:
 	Number& operator- (const Number&);
 	Number& operator/ (const Number&);
 	Number& operator% (const Number&);
-	Number& operator= (const Number&);
+	NumberRomawi& operator= (const NumberRomawi&);
 	bool operator< (const Number&);
 	bool operator== (const Number&);
 	int toInt(string s);

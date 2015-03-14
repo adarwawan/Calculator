@@ -15,7 +15,6 @@ public:
 	virtual Number& operator- (const Number&) = 0;
 	virtual Number& operator/ (const Number&) = 0;
 	virtual Number& operator% (const Number&) = 0;
-	virtual Number& operator= (const Number&) = 0;
 	virtual bool operator< (const Number&) = 0;
 	virtual bool operator== (const Number&) = 0;
 	virtual int toInt() = 0;

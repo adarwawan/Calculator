@@ -2,10 +2,10 @@
 #define __EXPRESSION_H
 
 #include <string>
-#include "stack.h"
-#include "Token.h"
-#include "NumberArab.h"
-#include "NumberRomawi.h"
+#include "../Stack/stack.h"
+#include "../Token/Token.h"
+#include "../Number/NumberArab.h"
+#include "../Number/NumberRomawi.h"
 
 class Expression {
 public:

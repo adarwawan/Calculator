@@ -2,7 +2,11 @@
 
 using namespace std;
 
-Saver::Saver(String S, Logger L) : _logMemory(L) {
+Saver::Saver() {
+  _filename = "";
+}
+
+Saver::Saver(string S, Logger L) : _logMemory(L) {
   _filename = S;
 }
 
@@ -20,7 +24,7 @@ void Saver::ConvertToFile() {
 
   /* Memasukkan Ekspresi dan Command */
   int ptEq = _logMemory.GetSizeEquations() - 1;
-  int ptCom = (int) _logMemory.GetCommandsSize() - 1;
+  int ptCom = (int) _logMemory.GetSizeCommands() - 1;
   int index = 0;
   while(ptEq >= 0 || ptCom >= 0) {
     ++index;

@@ -46,6 +46,14 @@ Log Logger::GetEquation(int i) {
   return _equations[i];
 }
 
+int Logger::GetSizeCommands() {
+  return _commands.size();
+}
+
+int Logger::GetSizeEquations() {
+  return _sizeEquations;
+}
+
 void Logger::Clear() {
   _commands.clear();
   _equations.clear();

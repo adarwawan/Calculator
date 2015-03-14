@@ -7,19 +7,20 @@
 #include <cstdio>
 #include <cmath>
 #include <cassert>
-#include "logger.h"
+#include "../Logger/Logger.h"
 
 using namespace std;
 
 class Saver
 {
 public:
-  Saver(String S, Logger L);
+  Saver();
+  Saver(string S, Logger L);
   ~Saver();
 
 private:
   void ConvertToFile();
-  String _filename;
+  string _filename;
   Logger _logMemory;
 };
 

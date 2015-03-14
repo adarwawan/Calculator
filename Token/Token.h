@@ -19,7 +19,7 @@ public :
 
 private :
   bool _IdentifyToken();
-  int _IdentifyPrior();
+  void _IdentifyPrior();
   string _symToken;
   bool _isOperator;
   int _prior;

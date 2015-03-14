@@ -43,11 +43,6 @@ Number& NumberArab::operator% (const Number& N){
 	return N1;
 }
 
-Number& NumberArab::operator= (const Number& N){
-	_nilai = N._nilai;
-	return *this;
-}
-
 bool NumberArab::operator< (const Number& N){
 	return (_nilai < N._nilai);
 }
@@ -61,7 +56,7 @@ int NumberArab::toInt(string s){
   if(s[0] == '-')
     i++;
   for(; i<s.length(); i++)
-    nilai = nilai*10 + nilai;
+    nilai = nilai*10 + s[i] - '0';
   if(s[0] == '-')
     nilai *= -1;
 	return nilai;

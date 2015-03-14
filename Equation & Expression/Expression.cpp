@@ -6,8 +6,7 @@ Expression::Expression(const string& strExp , int modeExpression) {
     case 0 : // prefix
       break;
     case 1 : // infix
-      _inToPrefix();
-      break;
+      _inToPostfix();
     case 2 : // postfix
       _postToPrefix();
   }
@@ -40,17 +39,35 @@ void Expression::_stringToTokens(const string& _strEq) {
   if(op)
     _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
 }
-void Expression::_inToPrefix() {
-/* mengubah ekspresi infix menjadi prefix */
+void Expression::_inToPostfix() {
+/* mengubah ekspresi infix menjadi postfix */
   stack<Token *> pre, opr;
   while(!_stackToken.empty()) {
     Token * t = _stackToken.top();
     _stackToken.pop();
     if(t->GetIsOperator()) {
+      if((t->GetSymToken())[0] == ')') {
+        opr.push(t);
+        continue;
+      }
+      else if((t->GetSymToken())[0] == '(') {
+        while(!opr.empty())
+          if((opr.top()->GetSymToken())[0] == ')') {
+            opr.pop();
+            break;
+          }
+          else {
+            pre.push(opr.top());
+            opr.pop();
+          }
+        continue;
+      }
       if(!opr.empty())
       {
-        if(t->GetPrior() < opr.top()->GetPrior())
-          pre.push(t);
+        if(t->GetPrior() < opr.top()->GetPrior()) {
+          pre.push(opr.top());
+          opr.pop();
+        }
         else
           opr.push(t);
       }
@@ -68,7 +85,15 @@ void Expression::_inToPrefix() {
     else
       pre.push(t);
   }
+  while(!opr.empty()) {
+    pre.push(opr.top());
+    opr.pop();
+  }
   _stackToken = pre;
+  while(!pre.empty()) {
+    cout << pre.top()->GetSymToken() << endl;
+    pre.pop();
+  }
 }
 void Expression::_postToPrefix() {
 /* mengubah ekspresi postfix menjadi prefix */

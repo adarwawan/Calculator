@@ -16,28 +16,39 @@ Equation& Equation::operator=(const Equation& E) {
   _stackToken = E._stackToken;
 }  
 int Equation::GetResult() {
+  return _result;
 }
 void Equation::SolveMathematical() {
   Number * opn1, * opn2;
   Token * opr;
   stack<Number *> res;
-  cout << _stackToken.size() << endl;
   while(!_stackToken.empty()) {
     opr = (Token *)_stackToken.top(); _stackToken.pop();
     if(opr->GetIsOperator()) {
-      /* <---- Exception jika res.empty() */
+      // <---- Exception jika res.empty() 
       opn1 = res.top(); res.pop();
-      cout << opn1-> getNilai() << endl;
-      /*  <--- Exception jika res.empty() */
+      //  <--- Exception jika res.empty()
       opn2 = res.top(); res.pop();
-      cout << opn1-> getNilai() << endl;
+      cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
       opn1 = Calculate(opn1, opr, opn2);
+      cout << opn1->getNilai() << endl;
       res.push(opn1);
-      cout << opn1-> getNilai() << endl;
     }
     else
       res.push((Number *)opr);
   }
+  
+  /*
+  while(!_stackToken.empty()) {
+    Token *t = _stackToken.top();
+    if(!(t->GetIsOperator())) {
+      Number * n = (Number *)t;
+      cout << t->getNilai() << " \t ";
+    }
+    cout << t->GetSymToken() << endl;
+    _stackToken.pop();
+  }
+  */
   /*  <--- Exception jika res.empty() */
   _stackToken.push((Token *)res.top());
   _result = res.top()->getNilai();

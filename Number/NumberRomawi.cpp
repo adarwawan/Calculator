@@ -43,11 +43,6 @@ Number& NumberRomawi::operator% (const Number& N){
 	return N1;
 }
 
-Number& NumberRomawi::operator= (const Number& N){
-	_nilai = N._nilai;
-	return *this;
-}
-
 bool NumberRomawi::operator< (const Number& N){
 	return (_nilai < N._nilai);
 }

@@ -22,8 +22,9 @@ public:
 	virtual Number& operator% (const Number&) = 0;
 	virtual bool operator< (const Number&) = 0;
 	virtual bool operator== (const Number&) = 0;
-  virtual Number& operator= (const Number& n) {
+  virtual Number& operator= (Number& n) {
     _nilai = n._nilai;
+    this->SetSymToken(n.GetSymToken());
   }
 	virtual int toInt(string) = 0;
 	int getNilai(){

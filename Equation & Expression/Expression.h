@@ -14,7 +14,7 @@ public:
   virtual ~Expression();
 private:
   void _stringToTokens(const string& );
-  void _inToPrefix();
+  void _inToPostfix();
   void _postToPrefix();
 protected:
   stack<Token *> _stackToken;

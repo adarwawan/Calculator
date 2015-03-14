@@ -17,7 +17,7 @@ int main() {
   cout << "  hasil = " << in.GetResult() << endl;
   cout << "Masukan postfix :\n";
   getline(cin, str);
-  Equation post(str, 0);
+  Equation post(str, 2);
   post.SolveMathematical();
   cout << "  hasil = " << post.GetResult() << endl;
   return 0;

@@ -7,25 +7,26 @@ using namespace std;
 Token::Token(string S) {
   _symToken = S;
   _isOperator = _IdentifyToken();
+  _IdentifyPrior();
 }
 
 /* Copy Constructor of Token */
 Token::Token(const Token& T) {
   this->_symToken = T._symToken;
   this->_isOperator = T._isOperator;
+  this->_prior = T._prior;
 }
 
 /* Assignment of Token */
 Token& Token::operator=(const Token& T) {
   this->_symToken = T._symToken;
   this->_isOperator = T._isOperator;
-
+  this->_prior = T._prior;
   return *this; 
 }
 
 /* Destructor of Token */
 Token::~Token() {
-
 }
 
 /* Getter and Setter */
@@ -40,11 +41,12 @@ bool Token::GetIsOperator() {
 void Token::SetSymToken(string S) {
   _symToken = S;
   _isOperator = _IdentifyToken();
+  _IdentifyPrior();
 }
 
 /* Other Method */
 bool Token::_IdentifyToken() {
-  if ((_symToken[0] == '-') && (_symToken.length() != 0))
+  if ((_symToken[0] == '-') && (_symToken.length() > 1))
   {
     return false;
   }
@@ -58,7 +60,7 @@ bool Token::_IdentifyToken() {
     return true;
   }
 }
-int Token::_IdentifyPrior() {
+void Token::_IdentifyPrior() {
   if(_isOperator) {
     switch(_symToken[0]) {
       case '*':

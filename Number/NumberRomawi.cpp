@@ -19,54 +19,44 @@ NumberRomawi::~NumberRomawi(){
 }
 
 Number& NumberRomawi::operator* (const Number& N){
-	Number& N1 = *(new NumberArab(_nilai * N._nilai));
+	Number& N1 = *(new NumberRomawi(_nilai * N._nilai));
 	return N1;
 }
 
 Number& NumberRomawi::operator+ (const Number& N){
-	Number& N1 = *(new NumberArab(_nilai + N._nilai));
+	Number& N1 = *(new NumberRomawi(_nilai + N._nilai));
 	return N1;
 }
 
 Number& NumberRomawi::operator- (const Number& N){
-	Number& N1 = *(new NumberArab(_nilai - N._nilai));
+	Number& N1 = *(new NumberRomawi(_nilai - N._nilai));
 	return N1;
 }
 
 Number& NumberRomawi::operator/ (const Number& N){
-	Number& N1 = *(new NumberArab(_nilai / N._nilai));
+	Number& N1 = *(new NumberRomawi(_nilai / N._nilai));
 	return N1;
 }
 
 Number& NumberRomawi::operator% (const Number& N){
-	Number& N1 = *(new NumberArab(_nilai % N._nilai));
+	Number& N1 = *(new NumberRomawi(_nilai % N._nilai));
 	return N1;
 }
 
-NumberRomawi& NumberRomawi::operator= (const NumberRomawi& N){
+Number& NumberRomawi::operator= (const Number& N){
 	_nilai = N._nilai;
 	return *this;
 }
 
 bool NumberRomawi::operator< (const Number& N){
-	if(_nilai < N._nilai){
-		return true;
-	}
-	else{
-		return false;
-	}
+	return (_nilai < N._nilai);
 }
 
-bool NumberRomawi::operator== (const Number&){
-	if(_nilai == N._nilai){
-		return true;
-	}
-	else{
-		return false;
-	}
+bool NumberRomawi::operator== (const Number& N){
+	return (_nilai == N._nilai);
 }
 
-int toInt(string s){
+int NumberRomawi::toInt(string s){
 	int satuan = 0;
 	int puluhan = 0;
 	int ratusan = 0;

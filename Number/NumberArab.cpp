@@ -3,11 +3,11 @@
 using namespace std;
 
 NumberArab::NumberArab() {
-	_name = 0;
+	_nilai = 0;
 }
 
 NumberArab::NumberArab(string s): Number(s){
-	_name = toInt(s);
+	_nilai = toInt(s);
 }
 
 NumberArab::NumberArab(int _n){
@@ -43,30 +43,26 @@ Number& NumberArab::operator% (const Number& N){
 	return N1;
 }
 
-NumberArab& NumberArab::operator= (const NumberArab& N){
+Number& NumberArab::operator= (const Number& N){
 	_nilai = N._nilai;
 	return *this;
 }
 
 bool NumberArab::operator< (const Number& N){
-	if(_nilai < N._nilai){
-		return true;
-	}
-	else{
-		return false;
-	}
+	return (_nilai < N._nilai);
 }
 
-bool NumberArab::operator== (const Number&){
-	if(_nilai == N._nilai){
-		return true;
-	}
-	else{
-		return false;
-	}
+bool NumberArab::operator== (const Number& N){
+	return (_nilai == N._nilai);
 }
 
 int NumberArab::toInt(string s){
-	int nilai = stoi(s);
+	int nilai = 0, i = 0;
+  if(s[0] == '-')
+    i++;
+  for(; i<s.length(); i++)
+    nilai = nilai*10 + nilai;
+  if(s[0] == '-')
+    nilai *= -1;
 	return nilai;
 }

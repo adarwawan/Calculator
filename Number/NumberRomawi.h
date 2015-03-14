@@ -2,6 +2,9 @@
 
 #ifndef _NumberRomawi_H_
 #define _NumberRomawi_H_
+
+#include "Number.h"
+#include <string>
 using namespace std;
 
 class NumberRomawi: public Number{
@@ -14,11 +17,11 @@ public:
 	Number& operator- (const Number&);
 	Number& operator/ (const Number&);
 	Number& operator% (const Number&);
-	NumberRomawi& operator= (const NumberRomawi&);
+	Number& operator= (const Number&);
 	bool operator< (const Number&);
 	bool operator== (const Number&);
 	int toInt(string s);
 	~NumberRomawi();
-} 
+};
 
 #endif

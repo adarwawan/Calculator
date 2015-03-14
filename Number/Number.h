@@ -3,15 +3,17 @@
 #ifndef _Number_H_
 #define _Number_H_
 
+#include "Token.h"
+#include <string>
 using namespace std;
 
 class Number: public Token{
 public:
 	Number(): Token(string("0")){
-		_isOperator = false;
+		//_isOperator = false;
 	}
 	Number(string s): Token(s){
-		_isOperator = false;
+		//_isOperator = false;
 	}
 	virtual Number& operator* (const Number&) = 0;
 	virtual Number& operator+ (const Number&) = 0;
@@ -20,7 +22,10 @@ public:
 	virtual Number& operator% (const Number&) = 0;
 	virtual bool operator< (const Number&) = 0;
 	virtual bool operator== (const Number&) = 0;
-	virtual int toInt() = 0;
+  virtual Number& operator= (const Number& n) {
+    _nilai = n._nilai;
+  }
+	virtual int toInt(string) = 0;
 	int getNilai(){
 		return _nilai;
 	}
@@ -28,10 +33,9 @@ public:
 		_nilai = _n;
 	}
 	virtual ~Number(){
-	
 	}
-protected:
+//protected:
 	int _nilai;
-}
+};
 
 #endif

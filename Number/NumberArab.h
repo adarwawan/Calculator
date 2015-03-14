@@ -3,6 +3,10 @@
 #ifndef _NumberArab_H_
 #define _NumberArab_H_
 
+#include "Number.h"
+#include <string>
+using namespace std;
+
 class NumberArab: public Number{
 public:
 	NumberArab();
@@ -13,11 +17,11 @@ public:
 	Number& operator- (const Number&);
 	Number& operator/ (const Number&);
 	Number& operator% (const Number&);
-	NumberArab& operator= (const NumberArab&);
+	Number& operator= (const Number&);
 	bool operator< (const Number&);
 	bool operator== (const Number&);
 	int toInt(string s);
 	~NumberArab();
-} 
+};
 
 #endif

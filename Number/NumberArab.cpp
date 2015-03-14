@@ -40,6 +40,12 @@ Number& NumberArab::operator/ (const Number& N){
 	return N1;
 }
 
+Number& NumberArab::operator= (const Number&){
+	Point N1;
+	N1._nilai = N._nilai;
+	return N1;
+}
+
 bool NumberArab::operator< (const Number& N){
 	if(_nilai< N._nilai){
 		return true;

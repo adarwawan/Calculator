@@ -7,7 +7,10 @@ using namespace std;
 
 class Number: public Token{
 public:
-	Number(){
+	Number(): Token(string("0")){
+		_isOperator = false;
+	}
+	Number(string s): Token(s){
 		_isOperator = false;
 	}
 	virtual Number& operator* (const Number&) = 0;
@@ -24,7 +27,9 @@ public:
 	void setNilai(int _n){
 		_nilai = _n;
 	}
-	virtual ~Number();
+	virtual ~Number(){
+	
+	}
 protected:
 	int _nilai;
 }

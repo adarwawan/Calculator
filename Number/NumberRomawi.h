@@ -8,6 +8,7 @@ class NumberRomawi: public Number{
 public:
 	NumberRomawi();
 	NumberRomawi(string s);
+	NumberRomawi(int _n);
 	Number& operator* (const Number&);
 	Number& operator+ (const Number&);
 	Number& operator- (const Number&);

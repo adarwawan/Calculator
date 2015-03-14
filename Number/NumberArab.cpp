@@ -2,52 +2,54 @@
 
 using namespace std;
 
-NumberArab::NumberArab(){
+NumberArab::NumberArab() {
 	_name = 0;
 }
 
-NumberArab::NumberArab(string s){
+NumberArab::NumberArab(string s): Number(s){
 	_name = toInt(s);
 }
 
+NumberArab::NumberArab(int _n){
+	_nilai = _n;
+}
+
+NumberArab::~NumberArab(){
+
+}
+
 Number& NumberArab::operator* (const Number& N){
-	Point N1;
-	N1._nilai(_nilai*N._nilai);
+	Number& N1 = *(new NumberArab(_nilai * N._nilai));
 	return N1;
 }
 
 Number& NumberArab::operator+ (const Number& N){
-	Point N1;
-	N1._nilai(_nilai + N._nilai);
+	Number& N1 = *(new NumberArab(_nilai + N._nilai));
 	return N1;
 }
 
 Number& NumberArab::operator- (const Number& N){
-	Point N1;
-	N1._nilai(_nilai - N._nilai);
-	return N1;
-}
-
-Number& NumberArab::operator% (const Number&){
-	Point N1;
-	N1._nilai(_nilai % N._nilai);
+	Number& N1 = *(new NumberArab(_nilai - N._nilai));
 	return N1;
 }
 
 Number& NumberArab::operator/ (const Number& N){
-	Point N1;
-	N1._nilai(_nilai / N._nilai);
+	Number& N1 = *(new NumberArab(_nilai / N._nilai));
 	return N1;
 }
 
-NumberArab& NumberArab::operator= (const NumberArab&){
-	Point N1;
-	N1._nilai = N._nilai;
+Number& NumberArab::operator% (const Number& N){
+	Number& N1 = *(new NumberArab(_nilai % N._nilai));
 	return N1;
+}
+
+NumberArab& NumberArab::operator= (const NumberArab& N){
+	_nilai = N._nilai;
+	return *this;
 }
 
 bool NumberArab::operator< (const Number& N){
-	if(_nilai< N._nilai){
+	if(_nilai < N._nilai){
 		return true;
 	}
 	else{
@@ -56,7 +58,7 @@ bool NumberArab::operator< (const Number& N){
 }
 
 bool NumberArab::operator== (const Number&){
-	if(_nilai== N._nilai){
+	if(_nilai == N._nilai){
 		return true;
 	}
 	else{
@@ -65,6 +67,6 @@ bool NumberArab::operator== (const Number&){
 }
 
 int NumberArab::toInt(string s){
-	int nilai  = stoi(s);
+	int nilai = stoi(s);
 	return nilai;
 }

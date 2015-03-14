@@ -7,6 +7,7 @@ class NumberArab: public Number{
 public:
 	NumberArab();
 	NumberArab(string s);
+	NumberArab(int _n);
 	Number& operator* (const Number&);
 	Number& operator+ (const Number&);
 	Number& operator- (const Number&);

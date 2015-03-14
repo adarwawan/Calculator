@@ -15,11 +15,14 @@ public :
   string GetSymToken();
   bool GetIsOperator();
   void SetSymToken(string S);
+  int GetPrior();
 
 private :
   bool _IdentifyToken();
+  int _IdentifyPrior();
   string _symToken;
   bool _isOperator;
+  int _prior;
 };
 
 #endif

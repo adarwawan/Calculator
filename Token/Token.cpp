@@ -44,7 +44,7 @@ void Token::SetSymToken(string S) {
 
 /* Other Method */
 bool Token::_IdentifyToken() {
-  if ((_symToken[0] == '-') && (_symToken.length != 0))
+  if ((_symToken[0] == '-') && (_symToken.length() != 0))
   {
     return false;
   }
@@ -57,4 +57,23 @@ bool Token::_IdentifyToken() {
     }
     return true;
   }
+}
+int Token::_IdentifyPrior() {
+  if(_isOperator) {
+    switch(_symToken[0]) {
+      case '*':
+      case '/':
+        _prior = 4; break;
+      case '+':
+      case '-':
+        _prior = 3; break;
+      case '%':
+        _prior = 2; break;
+    }
+  }
+  else
+    _prior = 0;
+}
+int Token::GetPrior() {
+  return _prior;
 }

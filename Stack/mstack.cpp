@@ -12,6 +12,7 @@ int main() {
   printf("\n");
   while(!st.empty()) {
     printf("%d ", st.top());
+    st.pop();
   }
   printf("\n");
   return 0;

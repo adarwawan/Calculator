@@ -33,8 +33,8 @@ public:
   void AddCommand(Log);
   void AddEquation(Log);
   
-  void UndoEquation(int);
-  void RedoEquation(int);
+  int UndoEquation(int);
+  int RedoEquation(int);
   void ShowMem(int);
   void ShowMemAll();
   

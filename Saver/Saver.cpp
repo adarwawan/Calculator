@@ -64,7 +64,6 @@ void Saver::ConvertToFile() {
         _logMemory.GetCommand(ptCom).GetSentence().c_str());
       ptCom--;
     }
-
-    fclose (stdout);
   }
+  fclose (stdout);
 }

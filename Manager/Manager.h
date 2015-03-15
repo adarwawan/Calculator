@@ -9,6 +9,8 @@
 #include "../Extension/Extension.h"
 #include <string>
 #include <cstdio>
+#include <cassert>
+#include <cstdlib>
 
 class Manager {
 public:
@@ -16,6 +18,9 @@ public:
   Manager(const Manager&);
   Manager& operator=(const Manager&);
   ~Manager();
+  
+  void ExecuteExpression(string);
+  void ExecuteCommand(string);
   
   void Redo(int);
   void Undo(int);

@@ -8,7 +8,7 @@ int main() {
   int modeOperan;
   string str;
   cout << "Pilih jenis perhitungan yang akan dilakukan : " << endl;
-  cout << "0  Bilangan Arab\n1  Bilangan Romawi\n2 Operasi logika\n\t-> ";
+  cout << "0  Bilangan Arab\n1  Bilangan Romawi\n2  Operasi logika\n\t-> ";
   cin >> modeOperan;
   int modeEquation, modeNumber;
   switch(modeOperan) {

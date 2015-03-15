@@ -24,7 +24,8 @@ Number& NumberRomawi::operator* (const Number& N){
 }
 
 Number& NumberRomawi::operator+ (const Number& N){
-	Number& N1 = *(new NumberRomawi(_nilai + N._nilai));
+  /* Sesuai Euclidean Definition nilai modulo selalu lebih besar atau sama dengan nol */
+	Number& N1 = *(new NumberRomawi(((_nilai % N._nilai)+N._nilai) % N._nilai));
 	return N1;
 }
 
@@ -104,6 +105,7 @@ string NumberRomawi::toString(int n) {
   for(int i = 6; i>=0; i -= 2) {
     y = x/z;
     x %= z;
+    z /= 10;
     switch(y) {
       case 3 : ret.push_back(rom[i]);
       case 2 : ret.push_back(rom[i]);

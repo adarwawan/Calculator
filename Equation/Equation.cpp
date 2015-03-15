@@ -8,7 +8,7 @@ Equation::Equation() {
   _result = "";
 }
 
-Equation::Equation(string strEqin, int modeExpress, int modeEquation, int modeNumber) : Expression(strEqin, modeExpress) {
+Equation::Equation(string strEqin, int modeExpress, int modeEquation, int modeNumber) : Expression(strEqin, modeExpress, modeEquation, modeNumber) {
   _strEq = strEqin;
   _modeEquation = modeEquation;
   _modeNumber = modeNumber;
@@ -63,6 +63,7 @@ void Equation::SolveMathematical() {
   }
   
   /*  <--- Exception jika res.empty() */
+  assert(res.size() == 1);
   _stackToken.push((Token *)res.top());
   _result = res.top()->GetSymToken();
 }
@@ -95,6 +96,7 @@ void Equation::SolveLogical() {
   }
   
   /*  <--- Exception jika res.empty() */
+  assert(res.size() == 1);
   _stackToken.push((Token *)res.top());
   _result = res.top()->GetSymToken();
 }

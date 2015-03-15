@@ -13,11 +13,11 @@
 class Expression {
 public:
   Expression();
-  Expression(const string& strExp , int modeExpression);
+  Expression(const string& strExp , int modeExpression, int modeEquation, int modeNumber);
   Expression(const Expression&);
   virtual ~Expression();
 private:
-  void _stringToTokens(const string& );
+  void _stringToTokens(const string& , int , int );
   void _inToPostfix();
   void _postToPrefix();
 protected:

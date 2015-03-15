@@ -39,7 +39,8 @@ Number& NumberArab::operator/ (const Number& N){
 }
 
 Number& NumberArab::operator% (const Number& N){
-	Number& N1 = *(new NumberArab(_nilai % N._nilai));
+  /* Sesuai Euclidean Definition nilai modulo selalu lebih besar atau sama dengan nol */
+	Number& N1 = *(new NumberArab(((_nilai % N._nilai)+N._nilai) % N._nilai));
 	return N1;
 }
 

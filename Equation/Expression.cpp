@@ -4,8 +4,8 @@ Expression::Expression() {
 
 }
 
-Expression::Expression(const string& strExp , int modeExpression) {
-  _stringToTokens(strExp);
+Expression::Expression(const string& strExp , int modeExpression, int modeEquation, int modeNumber) {
+  _stringToTokens(strExp, modeEquation, modeNumber);
   if(modeExpression == Extension::Prefix) {
     assert(true);
   } else if(modeExpression == Extension::Infix) {
@@ -21,14 +21,27 @@ Expression::Expression(const Expression& E) {
 }
 Expression::~Expression() {
 }
-void Expression::_stringToTokens(const string& _strEq) {
+void Expression::_stringToTokens(const string& _strEq, int modeEquation, int modeNumber) {
 /* mengubah string menjadi stack of token */
   int pos = 0, len = 0, i = 0;
   bool op = false;
   while(i < _strEq.length()) {
     if(_strEq[i] == ' ' || _strEq[i] == '\t' || _strEq[i] == '\n') {
       if(op) {
-        _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
+        if(modeEquation == Extension::NumberMode) {
+          if(modeNumber == Extension::ArabMode)
+            _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
+          else if(modeNumber == Extension::RomawiMode)
+            _stackToken.push(new NumberRomawi(_strEq.substr(pos, len)));
+          else
+            assert(false);
+        }
+        else {
+          if(modeEquation == Extension::LogicMode)
+            _stackToken.push(new Logic(_strEq.substr(pos, len)));
+          else
+            assert(false);
+        }
         op = false;
       }
     }
@@ -41,11 +54,25 @@ void Expression::_stringToTokens(const string& _strEq) {
     }
     i++;
   }
-  if(op)
-    _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
+  if(op) {
+    if(modeEquation == Extension::NumberMode) {
+      if(modeNumber == Extension::ArabMode)
+        _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
+      else if(modeNumber == Extension::RomawiMode)
+        _stackToken.push(new NumberRomawi(_strEq.substr(pos, len)));
+      else
+        assert(false);
+    }
+    else {
+      if(modeEquation == Extension::LogicMode)
+        _stackToken.push(new Logic(_strEq.substr(pos, len)));
+      else
+        assert(false);
+    }
+  }
 }
 void Expression::_inToPostfix() {
-/* mengubah ekspresi infix menjadi postfix */
+/* mengubah ekspresi infix menjadi prefix */
   stack<Token *> pre, opr;
   while(!_stackToken.empty()) {
     Token * t = _stackToken.top();
@@ -67,17 +94,6 @@ void Expression::_inToPostfix() {
           }
         continue;
       }
-      if(!opr.empty())
-      {
-        if(t->GetPrior() < opr.top()->GetPrior()) {
-          pre.push(opr.top());
-          opr.pop();
-        }
-        else
-          opr.push(t);
-      }
-      else
-        opr.push(t);
       while(!opr.empty()) {
         if(t->GetPrior() < opr.top()->GetPrior()) {
           pre.push(opr.top());
@@ -86,6 +102,7 @@ void Expression::_inToPostfix() {
         else
           break;
       }
+      opr.push(t);
     }
     else
       pre.push(t);
@@ -94,18 +111,33 @@ void Expression::_inToPostfix() {
     pre.push(opr.top());
     opr.pop();
   }
-  _stackToken = pre;
   while(!pre.empty()) {
-    cout << pre.top()->GetSymToken() << endl;
+    _stackToken.push(pre.top());
     pre.pop();
   }
 }
 void Expression::_postToPrefix() {
 /* mengubah ekspresi postfix menjadi prefix */
-  stack<Token *> pre;
-  while(!_stackToken.empty()) {
-    pre.push(_stackToken.top());
+  stack<Token *> pre, stk;
+  Token * flag = new Token("#");
+  while(!_stackToken.empty()) {  
+    if(_stackToken.top()->GetIsOperator())
+      stk.push(_stackToken.top());
+    else
+    {
+      pre.push(_stackToken.top());
+      while(!stk.empty() && stk.top() == flag)
+      {
+        stk.pop();
+        pre.push(stk.top());
+        stk.pop();
+      }
+      stk.push(flag);
+    }
     _stackToken.pop();
   }
-  _stackToken = pre;
+  while(!pre.empty()) {
+    _stackToken.push(pre.top());
+    pre.pop();
+  }
 }

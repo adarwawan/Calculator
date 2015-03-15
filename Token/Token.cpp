@@ -54,16 +54,26 @@ bool Token::_IdentifyToken() {
 void Token::_IdentifyPrior() {
   if(_isOperator) {
     switch(_symToken[0]) {
+      /* Prioritas operator relatif berdasarkan http://en.wikipedia.org/wiki/Order_of_operations */
       /* operator number */
       case '*':
-        _prior = 6; break;
+        _prior = 3; break;
       case '/':
-        _prior = 5; break;
-      case '+':
-        _prior = 4; break;
-      case '-':
         _prior = 3; break;
       case '%':
+        _prior = 3; break;
+      case '+':
+        _prior = 2; break;
+      case '-':
+        _prior = 2; break;
+      /* operator logic */
+      case '~':
+        _prior = 5; break;
+      case '&':
+        _prior = 4; break;
+      case '^':
+        _prior = 3; break;
+      case '|':
         _prior = 2; break;
       default :
         _prior = 1;

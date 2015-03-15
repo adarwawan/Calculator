@@ -2,6 +2,7 @@
 #define _NumberArab_H_
 
 #include "Number.h"
+#include "../Stack/stack.h"
 #include <string>
 using namespace std;
 

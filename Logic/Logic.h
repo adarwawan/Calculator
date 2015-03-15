@@ -2,7 +2,7 @@
 #define Logic_H
 
 #include <iostream>
-#include "Token.h"
+#include "../Token/Token.h"
 
 using namespace std;
 
@@ -20,10 +20,10 @@ public:
   void SetLogic(int i);
 
   /* Method */
-  Logic operator~();
-  Logic operator&(const Logic& L);
-  Logic operator|(const Logic& L);
-  Logic operator^(const Logic& L);
+  Logic& operator~();
+  Logic& operator&(const Logic& L);
+  Logic& operator|(const Logic& L);
+  Logic& operator^(const Logic& L);
   int toInt(string);
   string toString(int);
 

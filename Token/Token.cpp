@@ -30,7 +30,7 @@ Token::~Token() {
 }
 
 /* Getter and Setter */
-string Token::GetSymToken() {
+string Token::GetSymToken() const {
   return _symToken;
 }
 
@@ -47,30 +47,26 @@ void Token::SetSymToken(string S) {
 /* Other Method */
 bool Token::_IdentifyToken() {
   if ((_symToken[0] == '-') && (_symToken.length() > 1))
-  {
     return false;
-  }
-  else {
-    for (int i = 0; i < 10; ++i)
-    {
-      if (_symToken[0] == '0' + i) {
-        return false;
-      }
-    }
-    return true;
-  }
+  else
+    return (_symToken[0] < '0' || _symToken[0] > '9') && (_symToken[0] < 'A' || _symToken[0] > 'Z');
 }
 void Token::_IdentifyPrior() {
   if(_isOperator) {
     switch(_symToken[0]) {
+      /* operator number */
       case '*':
+        _prior = 6; break;
       case '/':
-        _prior = 4; break;
+        _prior = 5; break;
       case '+':
+        _prior = 4; break;
       case '-':
         _prior = 3; break;
       case '%':
         _prior = 2; break;
+      default :
+        _prior = 1;
     }
   }
   else

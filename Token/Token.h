@@ -12,7 +12,7 @@ public :
   ~Token(); /* Destructor of Token */
   
   /* Getter and Setter */
-  string GetSymToken();
+  string GetSymToken() const;
   bool GetIsOperator();
   void SetSymToken(string S);
   int GetPrior();

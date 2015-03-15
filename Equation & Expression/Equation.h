@@ -5,19 +5,21 @@
 
 class Equation : public Expression {
 public:
-  Equation(string strEqin, int modeExpress);
+  Equation(string strEqin, int modeExpress, int modeNumber);
   Equation(const Equation&);
   virtual ~Equation();
   Equation& operator=(const Equation&);
   
-  int GetResult();
+  string GetResult();
   void SolveMathematical();
   void SolveLogical();
-  Number * Calculate(Number * opn1, Token * opr, Number * opn2);
+  Number * CalculateNumber(Number * opn1, Token * opr, Number * opn2);
+  Logic * CalculateLogic(Logic * opn1, Token * opr, Logic * opn2);
   
 private:
   string _strEq;
-  int _result;
+  string _result;
+  int _modeNumber;
 };
 
 #endif

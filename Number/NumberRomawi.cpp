@@ -2,15 +2,15 @@
 
 using namespace std;
 
-NumberRomawi::NumberRomawi(){
-	_nilai = 0;
+NumberRomawi::NumberRomawi() : Number("X") {
+	_nilai = 1;
 }
 
 NumberRomawi::NumberRomawi(string s): Number(s){
 	_nilai = toInt(s);
 }
 
-NumberRomawi::NumberRomawi(int _n){
+NumberRomawi::NumberRomawi(int _n) : Number(toString(_n)) {
 	_nilai = _n;
 }
 
@@ -94,6 +94,39 @@ int NumberRomawi::toInt(string s){
 			else ribuan+=1000;
 		}
 	}
-	int nilai= ribuan + ratusan + puluhan + satuan;
+	int nilai = ribuan + ratusan + puluhan + satuan;
 	return nilai;
+}
+string NumberRomawi::toString(int n) {
+  char rom[] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M', '#', '#'};
+  string ret;
+  int x = n, y, z = 1000;
+  for(int i = 6; i>=0; i -= 2) {
+    y = x/z;
+    x %= z;
+    switch(y) {
+      case 3 : ret.push_back(rom[i]);
+      case 2 : ret.push_back(rom[i]);
+      case 1 : ret.push_back(rom[i]);
+               break;
+      case 4 : ret.push_back(rom[i]);
+      case 5 : ret.push_back(rom[i+1]);
+               break;
+      case 6 : ret.push_back(rom[i+1]);
+               ret.push_back(rom[i]);
+               break;
+      case 7 : ret.push_back(rom[i+1]);
+               ret.push_back(rom[i]);
+               ret.push_back(rom[i]);
+               break;
+      case 8 : ret.push_back(rom[i+1]);
+               ret.push_back(rom[i]);
+               ret.push_back(rom[i]);
+               ret.push_back(rom[i]);
+               break;
+      case 9 : ret.push_back(rom[i+2]);
+               ret.push_back(rom[i]);
+    }
+  }
+  return ret;
 }

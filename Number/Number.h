@@ -27,6 +27,7 @@ public:
     this->SetSymToken(n.GetSymToken());
   }
 	virtual int toInt(string) = 0;
+  virtual string toString(int) = 0;
 	int getNilai(){
 		return _nilai;
 	}

@@ -2,11 +2,14 @@
 #define Logic_H
 
 #include <iostream>
+#include "Token.h"
 
 using namespace std;
 
-class Logic {
+class Logic : public Token {
 public:
+  Logic(); /* Constructor */
+  Logic(string s); /* Constructor */
   Logic(int i); /* Constructor */
   Logic(const Logic& L); /* Copy Constructor */
   Logic& operator=(const Logic& L); /* Assignment */
@@ -17,10 +20,12 @@ public:
   void SetLogic(int i);
 
   /* Method */
-  Logic& operator~();
-  Logic& operator&(const Logic& L);
-  Logic& operator|(const Logic& L);
-  Logic& operator^(const Logic& L);
+  Logic operator~();
+  Logic operator&(const Logic& L);
+  Logic operator|(const Logic& L);
+  Logic operator^(const Logic& L);
+  int toInt(string);
+  string toString(int);
 
 private:
   int _logic;

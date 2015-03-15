@@ -1,4 +1,5 @@
 #include "NumberArab.h"
+#include "stack.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ NumberArab::NumberArab(string s): Number(s){
 	_nilai = toInt(s);
 }
 
-NumberArab::NumberArab(int _n){
+NumberArab::NumberArab(int _n): Number(toString(_n)){
 	_nilai = _n;
 }
 
@@ -60,4 +61,27 @@ int NumberArab::toInt(string s){
   if(s[0] == '-')
     nilai *= -1;
 	return nilai;
+}
+
+string NumberArab::toString(int n) {
+  string ret;
+  int x = n;
+  if(x < 0) {
+    ret.push_back('-');
+    x *= -1;
+  }
+  if(x < 10) {
+    ret.push_back('0'+x);
+    return ret;
+  }
+  stack<char> temp;
+  while(x>0) {
+    temp.push((x % 10)+'0');
+    x /= 10;
+  }
+  while(!temp.empty()) {
+    ret.push_back(temp.top());
+    temp.pop();
+  }
+  return ret;
 }

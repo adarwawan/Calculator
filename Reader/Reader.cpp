@@ -1,16 +1,16 @@
 #include "Reader.h"
 
-const string Reader::_commands[] = {"Save",
-                                    "Redo",
-                                    "Undo",
-                                    "Set",
-                                    "Reset",
-                                    "Show",
-                                    "View",
-                                    "Help"};
+const string Reader::_commands[] = {"save",
+                                    "redo",
+                                    "undo",
+                                    "set",
+                                    "reset",
+                                    "show",
+                                    "view",
+                                    "help"};
 
 Reader::Reader() {
-  _sentence = "Cinta memang buta, tapi hatiku yang lihat";
+  _sentence = "Default Sentence";
   _isEquation = false;
 }
 
@@ -29,13 +29,9 @@ Reader::~Reader() {
   _sentence.clear();
 }
 
-void Reader::Read() {
+string Reader::Read() {
   getline(cin, _sentence);
   _UpdateIsEquation();
-}
-
-string Reader::GetSentence() {
-  return _sentence;
 }
 
 bool Reader::IsEquation() {

@@ -16,8 +16,7 @@ public:
   ~Reader();
   
   // membaca perintah dari user sekaligus meng-update data member isEquation
-  void Read();
-  string GetSentence();
+  string Read();
   bool IsEquation();
   
 private:

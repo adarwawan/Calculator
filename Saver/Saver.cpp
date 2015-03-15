@@ -14,6 +14,22 @@ Saver::~Saver() {
 
 }
 
+string Saver::GetFileName() {
+  return _filename;
+}
+
+Logger Saver::GetLogMemory() {
+  return _logMemory;
+}
+
+void Saver::SetFileName(string filename) {
+  _filename = filename;
+}
+
+void Saver::SetLogMemory(Logger logMemory) {
+  _logMemory = logMemory;
+}
+
 void Saver::ConvertToFile() {
   freopen(_filename.c_str(),"w",stdout);
 

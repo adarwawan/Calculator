@@ -24,8 +24,7 @@ Number& NumberRomawi::operator* (const Number& N){
 }
 
 Number& NumberRomawi::operator+ (const Number& N){
-  /* Sesuai Euclidean Definition nilai modulo selalu lebih besar atau sama dengan nol */
-	Number& N1 = *(new NumberRomawi(((_nilai % N._nilai)+N._nilai) % N._nilai));
+	Number& N1 = *(new NumberRomawi(_nilai + N._nilai));
 	return N1;
 }
 
@@ -40,7 +39,8 @@ Number& NumberRomawi::operator/ (const Number& N){
 }
 
 Number& NumberRomawi::operator% (const Number& N){
-	Number& N1 = *(new NumberRomawi(_nilai % N._nilai));
+  /* Sesuai Euclidean Definition nilai modulo selalu lebih besar atau sama dengan nol */
+	Number& N1 = *(new NumberRomawi(((_nilai % N._nilai)+N._nilai) % N._nilai));
 	return N1;
 }
 

@@ -1,4 +1,4 @@
-compile : mManager.cpp Manager.cpp ../Reader/Reader.cpp ../Equation/Equation.cpp ../Equation/Expression.cpp ../Token/Token.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Saver/Saver.cpp ../Logger/Logger.cpp ../Logger/Log.cpp ../Logic/Logic.cpp
-  g++ mManager.cpp Manager.cpp ../Reader/Reader.cpp ../Equation/Equation.cpp ../Equation/Expression.cpp ../Token/Token.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Saver/Saver.cpp ../Logger/Logger.cpp ../Logger/Log.cpp ../Logic/Logic.cpp -o e
+compile : mManager.cpp Manager.cpp ../Reader/Reader.cpp ../Equation/Equation.cpp ../Equation/Expression.cpp ../Token/Token.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Saver/Saver.cpp ../Logger/Logger.cpp ../Logger/Log.cpp ../Logic/Logic.cpp ../EquationException/EquationException.cpp
+  g++ mManager.cpp Manager.cpp ../Reader/Reader.cpp ../Equation/Equation.cpp ../Equation/Expression.cpp ../Token/Token.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Saver/Saver.cpp ../Logger/Logger.cpp ../Logger/Log.cpp ../Logic/Logic.cpp ../EquationException/EquationException.cpp -o e
 run : e.exe
   e.exe

@@ -16,8 +16,13 @@ Manager::Manager() {
     printf("> ");
     buffer = _reader->Read();
     if(_reader->IsEquation()) {
-      ExecuteExpression(buffer);
-      _logger->AddEquation(Log(id, buffer));
+      try {
+        ExecuteExpression(buffer);
+        _logger->AddEquation(Log(id, buffer));      
+      } catch (EquationException& e) {
+        if(e.getID() != EquationException::EmptyEquation)
+          printf("\nException : %s\n", e.getMessage().c_str());
+      }
     } else {
       ExecuteCommand(buffer);
       _logger->AddCommand(Log(id, buffer));

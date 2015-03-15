@@ -46,12 +46,17 @@ void Equation::SolveMathematical() {
   Number * opn1, * opn2;
   Token * opr;
   stack<Number *> res;
+  if(_stackToken.empty()) {
+    throw(EquationException(EquationException::EmptyEquation));
+  }
   while(!_stackToken.empty()) {
     opr = (Token *)_stackToken.top(); _stackToken.pop();
     if(opr->GetIsOperator()) {
-      // <---- Exception jika res.empty() 
+      if(res.empty())
+        throw(EquationException(EquationException::IllegalUsingOperator));
       opn1 = res.top(); res.pop();
-      //  <--- Exception jika res.empty()
+      if(res.empty())
+        throw(EquationException(EquationException::IllegalUsingOperator));
       opn2 = res.top(); res.pop();
       cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
       opn1 = CalculateNumber(opn1, opr, opn2);
@@ -62,8 +67,8 @@ void Equation::SolveMathematical() {
       res.push((Number *)opr);
   }
   
-  /*  <--- Exception jika res.empty() */
-  assert(res.size() == 1);
+  if(res.size() != 1)
+    throw(EquationException(EquationException::IllegalUsingOperator));
   _stackToken.push((Token *)res.top());
   _result = res.top()->GetSymToken();
 }
@@ -72,10 +77,14 @@ void Equation::SolveLogical() {
   Logic * opn1, * opn2;
   Token * opr;
   stack<Logic *> res;
+  if(_stackToken.empty()) {
+    throw(EquationException(EquationException::EmptyEquation));
+  }
   while(!_stackToken.empty()) {
     opr = (Token *)_stackToken.top(); _stackToken.pop();
     if(opr->GetIsOperator()) {
-      // <---- Exception jika res.empty() 
+      if(res.empty())
+        throw(EquationException(EquationException::IllegalUsingOperator));
       opn1 = res.top(); res.pop();
       
       if(opr->GetSymToken()[0] == '~') {// kasus operator unary negasi (~)
@@ -84,7 +93,8 @@ void Equation::SolveLogical() {
         continue;
       }
       
-      //  <--- Exception jika res.empty()
+      if(res.empty())
+        throw(EquationException(EquationException::IllegalUsingOperator));
       opn2 = res.top(); res.pop();
       cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
       opn1 = CalculateLogic(opn1, opr, opn2);
@@ -95,8 +105,8 @@ void Equation::SolveLogical() {
       res.push((Logic *)opr);
   }
   
-  /*  <--- Exception jika res.empty() */
-  assert(res.size() == 1);
+  if(res.size() != 1)
+    throw(EquationException(EquationException::IllegalUsingOperator));
   _stackToken.push((Token *)res.top());
   _result = res.top()->GetSymToken();
 }
@@ -114,7 +124,8 @@ Number* Equation::CalculateNumber(Number * opn1, Token * opr, Number * opn2) {
       (*ret) = (*opn1) * (*opn2);
       break;
     case '/' :
-      /* <--- Exception jika opn2 nol */
+      if(opn2->getNilai() == 0)
+        throw(EquationException(EquationException::DivideByZero));
       (*ret) = (*opn1) / (*opn2);
       break;
     case '+' :
@@ -124,12 +135,15 @@ Number* Equation::CalculateNumber(Number * opn1, Token * opr, Number * opn2) {
       (*ret) = (*opn1) - (*opn2);
       break;
     case '%' :
-      /* <--- Exception jika opn2 nol */
+      if(opn2->getNilai() <= 0)
+        throw(EquationException(EquationException::ModuloByNonPositif));
       (*ret) = (*opn1) % (*opn2);
       break;
-      
+    default :
+      throw(EquationException(EquationException::UndefinedOperator));
   }
-  /* Exception jika nilai diluar batas */
+  if(_modeNumber == Extension::RomawiMode && (ret->getNilai() < 1 || ret->getNilai() > 3999))
+    throw(EquationException(EquationException::OutOfBoundRomawi));
   return ret;
 }
 
@@ -145,8 +159,8 @@ Logic * Equation::CalculateLogic(Logic * opn1, Token * opr, Logic * opn2) {
     case '^' :
       (*ret) = (*opn1) ^ (*opn2);
       break;
-      
+    default:
+      throw(EquationException(EquationException::UndefinedOperator));
   }
-  /* Exception jika nilai diluar batas */
   return ret;
 }

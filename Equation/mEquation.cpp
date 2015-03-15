@@ -28,18 +28,29 @@ int main() {
   
   cout << "Masukan prefix :\n";
   getline(cin, str);
-  Equation pre(str, Extension::Prefix, modeEquation, modeNumber);
-  cout << "  hasil = " << pre.GetResult() << endl;
-  
+  try {
+    Equation pre(str, Extension::Prefix, modeEquation, modeNumber);
+    cout << "  hasil = " << pre.GetResult() << endl;
+  } catch (EquationException& e) {
+    cout << e.getMessage() << endl;
+  }
   cout << "Masukan infix :\n";
   getline(cin, str);
-  Equation in(str, Extension::Infix, modeEquation, modeNumber);
-  cout << "  hasil = " << in.GetResult() << endl;
-  
+  try {
+    Equation in(str, Extension::Infix, modeEquation, modeNumber);
+    cout << "  hasil = " << in.GetResult() << endl;
+  } catch (EquationException& e) {
+    cout << e.getMessage() << endl;
+  }
   cout << "Masukan postfix :\n";
   getline(cin, str);
-  Equation post(str, Extension::Postfix, modeEquation, modeNumber);
-  cout << "  hasil = " << post.GetResult() << endl;
+  try {
+    Equation post(str, Extension::Postfix, modeEquation, modeNumber);
+    cout << "  hasil = " << post.GetResult() << endl;
+  } catch (EquationException& e) {
+    cout << e.getMessage() << endl;
+  }
+    cout << "\nBanyaknya exception = "  << EquationException::getNumOfException() << endl;
   
   return 0;
 }

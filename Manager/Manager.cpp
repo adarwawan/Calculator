@@ -8,15 +8,12 @@ Manager::Manager() {
   _saver = new Saver();
   _logger = new Logger();
   
-  string buffer, cuk;
+  string buffer;
   int id = 0;
   do {
     id++;
     printf("> ");
     buffer = _reader->Read();
-    cout << buffer << endl;
-    cout << _reader->IsEquation();
-    cin >> cuk;
     if(_reader->IsEquation()) {
       Equation solver(buffer, _expressionMode, _equationMode, _numberMode);
       if(_equationMode == Extension::NumberMode) {
@@ -33,8 +30,8 @@ Manager::Manager() {
       // jangan lupa command kita lower case semua. ex : show mem all
       _logger->AddCommand(Log(id, buffer));
     }
-  } while(buffer != "exit" && buffer != "exit");
-  printf("Bye bye");
+  } while(buffer != "exit");
+  printf("Bye bye\n");
 }
 
 Manager::Manager(const Manager& man) {

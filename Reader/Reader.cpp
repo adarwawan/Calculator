@@ -7,7 +7,8 @@ const string Reader::_commands[] = {"save",
                                     "reset",
                                     "show",
                                     "view",
-                                    "help"};
+                                    "help",
+                                    "exit"};
 
 Reader::Reader() {
   _sentence = "Default Sentence";
@@ -32,6 +33,7 @@ Reader::~Reader() {
 string Reader::Read() {
   getline(cin, _sentence);
   _UpdateIsEquation();
+  return _sentence;
 }
 
 bool Reader::IsEquation() {

@@ -2,11 +2,11 @@
 #define __EXPRESSION_H
 
 #include <string>
-#include "stack.h"
-#include "Token.h"
-#include "NumberArab.h"
-#include "NumberRomawi.h"
-#include "Logic.h"
+#include "../Stack/stack.h"
+#include "../Token/Token.h"
+#include "../Number/NumberArab.h"
+#include "../Number/NumberRomawi.h"
+#include "../Logic/Logic.h"
 
 #define _PREFIX_MODE 0
 #define _INFIX_MODE 1

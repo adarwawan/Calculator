@@ -23,6 +23,8 @@ public:
   // getter and setter
   Log GetCommand(int);
   Log GetEquation(int);
+  int GetSizeCommands();
+  int GetSizeEquations();
   
   void Clear();
   void ClearCommands();

@@ -1,5 +1,3 @@
-#include "Number.h"
-
 #ifndef _NumberArab_H_
 #define _NumberArab_H_
 

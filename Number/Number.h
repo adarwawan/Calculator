@@ -3,7 +3,7 @@
 #ifndef _Number_H_
 #define _Number_H_
 
-#include "Token.h"
+#include "../Token/Token.h"
 #include <string>
 using namespace std;
 

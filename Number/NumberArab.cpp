@@ -1,5 +1,4 @@
 #include "NumberArab.h"
-#include "stack.h"
 
 using namespace std;
 

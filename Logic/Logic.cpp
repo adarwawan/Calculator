@@ -45,24 +45,24 @@ void Logic::SetLogic(int i) {
 }
 
 /* Method */
-Logic Logic::operator~() {
+Logic& Logic::operator~() {
   return *(new Logic(!_logic));
 }
 
-Logic Logic::operator&(const Logic& L) {
+Logic& Logic::operator&(const Logic& L) {
   return *(new Logic(_logic && L._logic));
 }
 
-Logic Logic::operator|(const Logic& L) {
+Logic& Logic::operator|(const Logic& L) {
   return *(new Logic(_logic || L._logic));
 }
 
-Logic Logic::operator^(const Logic& L) {
+Logic& Logic::operator^(const Logic& L) {
   return *(new Logic(!(_logic) != !(L._logic)));
 }
 
 int Logic::toInt(string s) {
-  if(s == "False" || s == "0")
+  if(s == "FALSE" || s == "0")
     return 0;
   return 1;
 }
@@ -70,8 +70,8 @@ int Logic::toInt(string s) {
 string Logic::toString(int n) {
   string ret;
   if(n)
-    ret = string("True");
+    ret = string("TRUE");
   else
-    ret = string("False");
+    ret = string("FALSE");
   return ret;
 }

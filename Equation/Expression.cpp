@@ -1,5 +1,9 @@
 #include "Expression.h"
 
+Expression::Expression() {
+
+}
+
 Expression::Expression(const string& strExp , int modeExpression) {
   _stringToTokens(strExp);
   if(modeExpression == Extension::Prefix) {

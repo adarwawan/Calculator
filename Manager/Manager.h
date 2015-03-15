@@ -34,9 +34,9 @@ private:
   int _expressionMode;
   int _equationMode;
   int _numberMode;
-  Reader _reader;
-  Saver _saver;
-  Logger _logger;
+  Reader* _reader;
+  Saver* _saver;
+  Logger* _logger;
 };
 
 #endif

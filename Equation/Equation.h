@@ -5,7 +5,8 @@
 
 class Equation : public Expression {
 public:
-  Equation(string strEqin, int modeExpress, int modeNumber);
+  Equation();
+  Equation(string strEqin, int modeExpress, int modeEquation, int modeNumber);
   Equation(const Equation&);
   virtual ~Equation();
   Equation& operator=(const Equation&);
@@ -19,6 +20,7 @@ public:
 private:
   string _strEq;
   string _result;
+  int _modeEquation;
   int _modeNumber;
 };
 

@@ -1,13 +1,24 @@
 #include "Equation.h"
 
 using namespace std;
-Equation::Equation(string strEqin, int modeExpress, int modeNumber) : Expression(strEqin, modeExpress, modeNumber) {
+
+Equation::Equation() {
+  _modeEquation = Extension::defaultEquationMode;
+  _modeNumber = Extension::defaultNumberMode;
+  _result = "";
+}
+
+Equation::Equation(string strEqin, int modeExpress, int modeEquation, int modeNumber) : Expression(strEqin, modeExpress) {
   _strEq = strEqin;
+  _modeEquation = modeEquation;
   _modeNumber = modeNumber;
 }
 
 Equation::Equation(const Equation& E) : Expression(E){
   _strEq = E._strEq;
+  _result = E._result;
+  _modeEquation = E._modeEquation;
+  _modeNumber = E._modeNumber;
   _stackToken = E._stackToken;
 }
 
@@ -20,17 +31,17 @@ Equation& Equation::operator=(const Equation& E) {
 }  
 string Equation::GetResult() {
   if(_result.length() < 1) {
-    switch (_modeNumber) {
-      case _ARAB_MODE:
-      case _ROMAWI_MODE:
-        SolveMathematical();
-        break;
-      case _LOGIC_MODE:
-        SolveLogical();
+    if(_modeEquation == Extension::NumberMode) {
+      SolveMathematical();
+    } else if(_modeEquation == Extension::LogicMode) {
+      SolveLogical();
+    } else {
+      assert(false);
     }
   }
   return _result;
 }
+
 void Equation::SolveMathematical() {
   Number * opn1, * opn2;
   Token * opr;
@@ -55,6 +66,7 @@ void Equation::SolveMathematical() {
   _stackToken.push((Token *)res.top());
   _result = res.top()->GetSymToken();
 }
+
 void Equation::SolveLogical() {
   Logic * opn1, * opn2;
   Token * opr;
@@ -88,13 +100,12 @@ void Equation::SolveLogical() {
 }
 Number* Equation::CalculateNumber(Number * opn1, Token * opr, Number * opn2) {
   Number * ret;
-  switch(_modeNumber) {
-  case _ARAB_MODE :
+  if(_modeNumber == Extension::ArabMode) {
     ret = new NumberArab();
-    break;
-  case _ROMAWI_MODE :
-  default :
+  } else if(_modeNumber == Extension::RomawiMode) {
     ret = new NumberRomawi();
+  } else {
+    assert(false);
   }
   switch ((opr->GetSymToken())[0]) {
     case '*' :

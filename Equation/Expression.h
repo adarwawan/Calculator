@@ -8,9 +8,11 @@
 #include "../Number/NumberArab.h"
 #include "../Number/NumberRomawi.h"
 #include "../Extension/Extension.h"
+#include "../Logic/Logic.h"
 
 class Expression {
 public:
+  Expression();
   Expression(const string& strExp , int modeExpression);
   Expression(const Expression&);
   virtual ~Expression();

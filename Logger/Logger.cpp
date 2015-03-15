@@ -85,14 +85,16 @@ void Logger::AddEquation(Log log) {
 
 int Logger::UndoEquation(int n) {
   int tobe = max(_sizeEquations - n, 0);
+  int change = _sizeEquations - tobe;
   _sizeEquations = tobe;
-  return n - tobe;
+  return change;
 }
 
 int Logger::RedoEquation(int n) {
   int tobe = min(_sizeEquations + n, (int) _equations.size());
+  int change = tobe - _sizeEquations;
   _sizeEquations = tobe;
-  return tobe - n;
+  return change;
 }
 
 void Logger::ShowMem(int n) {

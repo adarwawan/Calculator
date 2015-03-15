@@ -1,0 +1,7 @@
+Sun Mar 15 14:07:14 2015
+> Perintah terakhir (equation)  1 : + x 4 4 1
+> Perintah terakhir (command)   2 : view
+> Perintah terakhir (command)   3 : set prefiks
+> Perintah terakhir (equation)  4 : 1 + 1 * 4
+> Perintah terakhir (equation)  5 : 1 + 1 + 2 + 3
+> Perintah terakhir (equation)  6 : 1 + 1

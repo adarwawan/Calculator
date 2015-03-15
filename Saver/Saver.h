@@ -28,6 +28,7 @@ public:
 private:
   string _filename;
   Logger _logMemory;
+  FILE* out;
 };
 
 #endif

@@ -1,0 +1,8 @@
+Sun Mar 15 12:26:11 2015
+> Perintah terakhir (command)   1 : show mem all
+> Perintah terakhir (command)   2 : show mem all
+> Perintah terakhir (command)   3 : show mem all
+> Perintah terakhir (command)   4 : show mem all
+> Perintah terakhir (command)   5 : show mem 2
+> Perintah terakhir (command)   6 : show mem 1
+> Perintah terakhir (command)   7 : view

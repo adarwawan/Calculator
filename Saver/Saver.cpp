@@ -31,12 +31,12 @@ void Saver::SetLogMemory(Logger logMemory) {
 }
 
 void Saver::ConvertToFile() {
-  freopen(_filename.c_str(),"w",stdout);
+  out = fopen(_filename.c_str(),"w");
 
   /* Pencatat Waktu */
   time_t ltime; /* calendar time */
   ltime=time(NULL); /* get current cal time */
-  printf("%s",asctime( localtime(&ltime) ) );
+  fprintf(out, "%s",asctime( localtime(&ltime) ) );
 
   /* Memasukkan Ekspresi dan Command */
   int ptEq = _logMemory.GetSizeEquations() - 1;
@@ -46,24 +46,25 @@ void Saver::ConvertToFile() {
     ++index;
     if(ptEq >= 0 && ptCom >= 0) {
       if(_logMemory.GetEquation(ptEq).GetID() > _logMemory.GetCommand(ptCom).GetID()) {
-        printf("> Perintah terakhir (equation) %2d : %s\n", index,
+        fprintf(out, "> Perintah terakhir (equation) %2d : %s\n", index,
           _logMemory.GetEquation(ptEq).GetSentence().c_str());
         ptEq--;
       } else {
-        printf("> Perintah terakhir (command) %3d : %s\n", index,
+        fprintf(out, "> Perintah terakhir (command) %3d : %s\n", index,
           _logMemory.GetCommand(ptCom).GetSentence().c_str());
         ptCom--;
       }
     } else if(ptEq >= 0) {
-      printf("> Perintah terakhir (equation) %2d : %s\n", index,
+      fprintf(out, "> Perintah terakhir (equation) %2d : %s\n", index,
         _logMemory.GetEquation(ptEq).GetSentence().c_str());
       ptEq--;
     } else {
       assert(ptCom >= 0);
-      printf("> Perintah terakhir (command) %3d : %s\n", index,
+      fprintf(out, "> Perintah terakhir (command) %3d : %s\n", index,
         _logMemory.GetCommand(ptCom).GetSentence().c_str());
       ptCom--;
     }
   }
-  fclose (stdout);
+  fclose (out);
+  printf("Penulisan di %s berhasil.\n", _filename.c_str());
 }

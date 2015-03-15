@@ -11,6 +11,7 @@
 #include <cstdio>
 #include <cassert>
 #include <cstdlib>
+#include <conio.h>
 
 class Manager {
 public:

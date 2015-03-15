@@ -8,6 +8,7 @@ Manager::Manager() {
   _saver = new Saver();
   _logger = new Logger();
   
+  printf("Type 'help' to show documentation.\n\n");
   string buffer;
   int id = 0, n;
   do {
@@ -67,7 +68,7 @@ void Manager::ExecuteExpression(string buffer) {
 
 void Manager::ExecuteCommand(string buffer) {
   stringstream ss(buffer);
-  string word;
+  string temp, word;
   int n;
   ss >> word;
   if(word == "save") {
@@ -98,7 +99,7 @@ void Manager::ExecuteCommand(string buffer) {
   } else if(word == "reset") {
     ResetSetting();
   } else if(word == "show") {
-    cin >> word >> word;
+    ss >> temp >> word;
     n = atoi(word.c_str());
     if(word == "all") ShowMemAll();
     else if(n >= 0) ShowMem(n);
@@ -167,6 +168,37 @@ void Manager::ShowMemAll() {
 void Manager::Help() {
   // show what command we are offering here
   // list command yang ditawarkan ada di doc RencanaKelasImplementasi, udah gw update
+  printf("\n");
+  printf(" Berikut adalah command yang disediakan di program ini.\n\n");
+  printf(" save          : Untuk menyimpan operasi yang pernah dilakukan dalam file");
+  printf("                 eksternal. File eksternal akan diminta selanjutnya\n\n");
+  printf(" undo <n>      : Menghapus n buah ekspresi terakhir, <n> adalah bilangan cacah\n\n");
+  printf(" redo <n>      : Mengulang n perintah terakhir\n\n");
+  printf(" set           \n");
+  printf("    prefiks    : Mengubah setting ekspresi menjadi prefiks\n");
+  printf("    infiks     : Mengubah setting ekspresi menjadi infiks\n");
+  printf("    postfiks   : Mengubah setting ekspresi menjadi postfiks\n");
+  printf("    bilangan   : Mengubah setting equation menjadi bilangan\n");
+  printf("    logika     : Mengubah setting equation menjadi logika\n");
+  printf("    arab       : Mengubah setting bilangan menjadi bilangan arab\n");
+  printf("    romawi     : Mengubah setting bilangan menjadi romawi\n\n");
+  printf(" reset         : Mengembalikan setting ke mode default\n\n");
+  
+  printf(" Klik apapun KECUALI [Enter] untuk melanjutkan "); while(!kbhit());
+  system("cls");
+  printf("\n\n");
+  
+  printf(" show mem <n>  : Menampilkan ekspresi atau perintah terakhir sebanyak n"); printf("                 <n> adalah bilangan cacah\n\n");
+  printf(" show mem all  : Menampilkan seluruh ekspresi atau perintah yang");
+  printf("                 pernah dilakukan\n\n");
+  printf(" view          : Menampilkan mode setting saat ini\n\n");
+  printf(" exit          : Keluar dari command\n\n");
+  
+  printf(" DEFAULT MODE  :\n");
+  printf("           Expression mode   : infiks\n");
+  printf("           Equation mode     : bilangan\n");
+  printf("           Number mode       : arab\n\n");
+  printf(" Setting berada dalam default mode ketika awal run program\n\n");
 }
 
 void Manager::ViewSetting() {

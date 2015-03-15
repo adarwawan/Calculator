@@ -1,0 +1,9 @@
+Sun Mar 15 12:47:48 2015
+> Perintah terakhir (command)   1 : save
+> Perintah terakhir (command)   2 : undo 2
+> Perintah terakhir (command)   3 : show mem all
+> Perintah terakhir (command)   4 : undo 1
+> Perintah terakhir (command)   5 : show mem all
+> Perintah terakhir (command)   6 : view
+> Perintah terakhir (command)   7 : set prefiks
+> Perintah terakhir (command)   8 : view

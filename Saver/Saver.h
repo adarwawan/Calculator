@@ -23,9 +23,9 @@ public:
   Logger GetLogMemory();
   void SetFileName(string);
   void SetLogMemory(Logger);
+  void ConvertToFile();
   
 private:
-  void ConvertToFile();
   string _filename;
   Logger _logMemory;
 };

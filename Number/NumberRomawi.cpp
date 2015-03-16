@@ -118,8 +118,8 @@ string NumberRomawi::toString(int n) {
                ret.push_back(rom[i]);
                ret.push_back(rom[i]);
                break;
-      case 9 : ret.push_back(rom[i+2]);
-               ret.push_back(rom[i]);
+      case 9 : ret.push_back(rom[i]);
+               ret.push_back(rom[i+2]);
     }
   }
   return ret;

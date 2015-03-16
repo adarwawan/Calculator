@@ -205,7 +205,7 @@ Logic * Equation::CalculateNumberToLogic(Number * opn1, Token * opr, Number * op
       (*ret) = (*opn1) > (*opn2);
   else if(opr->GetSymToken() == ">=")
       (*ret) = (*opn1) >= (*opn2);
-  else if(opr->GetSymToken() == "==")
+  else if(opr->GetSymToken() == "=")
       (*ret) = (*opn1) == (*opn2);
   else if(opr->GetSymToken() == "!=")
       (*ret) = (*opn1) != (*opn2);

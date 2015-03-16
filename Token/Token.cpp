@@ -62,7 +62,7 @@ void Token::_IdentifyPrior() {
     /* operator number to logic */
     else if(_symToken == "<" || _symToken == "<=" || _symToken == ">" || _symToken == ">=")
       _prior = 8;
-    else if(_symToken == "==" || _symToken == "!=")
+    else if(_symToken == "=" || _symToken == "!=")
       _prior = 7;
     /* operator logic to logic */
     else if(_symToken == "~")

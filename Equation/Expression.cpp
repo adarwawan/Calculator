@@ -20,6 +20,12 @@ Expression::Expression(const Expression& E) {
   _stackToken = E._stackToken;
 }
 Expression::~Expression() {
+  Token * t;
+  while(!_stackToken.empty()) {
+    t = _stackToken.top();
+    _stackToken.pop();
+    delete t;
+  }
 }
 void Expression::_stringToTokens(const string& _strEq, int modeEquation, int modeNumber) {
 /* mengubah string menjadi stack of token */
@@ -38,7 +44,21 @@ void Expression::_stringToTokens(const string& _strEq, int modeEquation, int mod
         }
         else {
           if(modeEquation == Extension::LogicMode)
-            _stackToken.push(new Logic(_strEq.substr(pos, len)));
+          {
+            bool isLogic = false;
+            char LogicCheck[] = {'T', 't', 'F', 'f', '~', '&', '^', '|'};
+            for(int i = 0; i<8 && !isLogic; i++)
+              isLogic = (_strEq[pos] == LogicCheck[i]);
+            if(isLogic)
+              _stackToken.push(new Logic(_strEq.substr(pos, len)));
+            else 
+              if(modeNumber == Extension::ArabMode)
+                _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
+              else if(modeNumber == Extension::RomawiMode)
+                _stackToken.push(new NumberRomawi(_strEq.substr(pos, len)));
+              else
+                assert(false);
+          }
           else
             assert(false);
         }
@@ -65,7 +85,21 @@ void Expression::_stringToTokens(const string& _strEq, int modeEquation, int mod
     }
     else {
       if(modeEquation == Extension::LogicMode)
-        _stackToken.push(new Logic(_strEq.substr(pos, len)));
+      {
+        bool isLogic = false;
+        char LogicCheck[] = {'T', 't', 'F', 'f', '~', '&', '^', '|'};
+        for(int i = 0; i<8 && !isLogic; i++)
+          isLogic = (_strEq[pos] == LogicCheck[i]);
+        if(isLogic)
+          _stackToken.push(new Logic(_strEq.substr(pos, len)));
+        else 
+          if(modeNumber == Extension::ArabMode)
+            _stackToken.push(new NumberArab(_strEq.substr(pos, len)));
+          else if(modeNumber == Extension::RomawiMode)
+            _stackToken.push(new NumberRomawi(_strEq.substr(pos, len)));
+          else
+            assert(false);
+      }
       else
         assert(false);
     }

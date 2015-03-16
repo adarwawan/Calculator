@@ -44,14 +44,6 @@ Number& NumberArab::operator% (const Number& N){
 	return N1;
 }
 
-bool NumberArab::operator< (const Number& N){
-	return (_nilai < N._nilai);
-}
-
-bool NumberArab::operator== (const Number& N){
-	return (_nilai == N._nilai);
-}
-
 int NumberArab::toInt(string s){
 	int nilai = 0, i = 0;
   if(s[0] == '-')

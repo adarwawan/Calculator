@@ -16,8 +16,6 @@ public:
 	Number& operator- (const Number&);
 	Number& operator/ (const Number&);
 	Number& operator% (const Number&);
-	bool operator< (const Number&);
-	bool operator== (const Number&);
 	int toInt(string s);
   string toString(int n);
 	~NumberArab();

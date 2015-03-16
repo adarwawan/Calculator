@@ -62,7 +62,7 @@ Logic& Logic::operator^(const Logic& L) {
 }
 
 int Logic::toInt(string s) {
-  if(s == "FALSE" || s == "0")
+  if(s == "FALSE" || s == "false")
     return 0;
   return 1;
 }

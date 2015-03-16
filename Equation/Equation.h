@@ -17,6 +17,7 @@ public:
   void SolveLogical();
   Number * CalculateNumber(Number * opn1, Token * opr, Number * opn2);
   Logic * CalculateLogic(Logic * opn1, Token * opr, Logic * opn2);
+  Logic * CalculateNumberToLogic(Number * opn1, Token * opr, Number * opn2);
   
 private:
   string _strEq;

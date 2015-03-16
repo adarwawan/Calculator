@@ -4,38 +4,36 @@
 #define _Number_H_
 
 #include "../Token/Token.h"
+#include "../Logic/Logic.h"
 #include <string>
 using namespace std;
 
 class Number: public Token{
 public:
-	Number(): Token(string("0")){
-		//_isOperator = false;
-	}
-	Number(string s): Token(s){
-		//_isOperator = false;
-	}
+	Number();
+	Number(string s);
+	virtual ~Number();
+  virtual Number& operator= (Number& n);
+  
 	virtual Number& operator* (const Number&) = 0;
 	virtual Number& operator+ (const Number&) = 0;
 	virtual Number& operator- (const Number&) = 0;
 	virtual Number& operator/ (const Number&) = 0;
 	virtual Number& operator% (const Number&) = 0;
-	virtual bool operator< (const Number&) = 0;
-	virtual bool operator== (const Number&) = 0;
-  virtual Number& operator= (Number& n) {
-    _nilai = n._nilai;
-    this->SetSymToken(n.GetSymToken());
-  }
+  
 	virtual int toInt(string) = 0;
   virtual string toString(int) = 0;
-	int getNilai(){
-		return _nilai;
-	}
-	void setNilai(int _n){
-		_nilai = _n;
-	}
-	virtual ~Number(){
-	}
+  
+	Logic& operator< (const Number&);
+	Logic& operator<= (const Number&);
+	Logic& operator> (const Number&);
+	Logic& operator>= (const Number&);
+	Logic& operator== (const Number&);
+	Logic& operator!= (const Number&);
+  
+	int getNilai();
+	void setNilai(int _n);
+  
 //protected:
 	int _nilai;
 };

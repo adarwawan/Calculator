@@ -5,25 +5,23 @@ using namespace std;
 
 int main() {
   
-  int modeOperan;
-  string str;
-  cout << "Pilih jenis perhitungan yang akan dilakukan : " << endl;
-  cout << "0  Bilangan Arab\n1  Bilangan Romawi\n2  Operasi logika\n\t-> ";
-  cin >> modeOperan;
+  int modeSelect;
   int modeEquation, modeNumber;
-  switch(modeOperan) {
-    case 0 :
-      modeEquation = Extension::NumberMode;
-      modeNumber = Extension::ArabMode;
-      break;
-    case 1 : 
-      modeEquation = Extension::NumberMode;
-      modeNumber = Extension::RomawiMode;
-      break;
-    case 2 :
-      modeEquation = Extension::LogicMode;
-      break;
-  }
+  string str;
+  cout << "Pilih jenis angka yang akan digunakan : " << endl;
+  cout << "0  Bilangan Arab\n1  Bilangan Romawi\n\t-> ";
+  cin >> modeSelect;
+  if(modeSelect)
+    modeNumber = Extension::RomawiMode;
+  else
+    modeNumber = Extension::ArabMode;
+  cout << "Pilih jenis perhitungan yang akan dilakukan : " << endl;
+  cout << "0  Operasi Numerik\n1  Operasi Logika\n\t-> ";
+  cin >> modeSelect;
+  if(modeSelect)
+    modeEquation = Extension::LogicMode;
+  else
+    modeNumber = Extension::NumberMode;
   getline(cin, str);
   
   cout << "Masukan prefix :\n";

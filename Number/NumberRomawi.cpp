@@ -44,14 +44,6 @@ Number& NumberRomawi::operator% (const Number& N){
 	return N1;
 }
 
-bool NumberRomawi::operator< (const Number& N){
-	return (_nilai < N._nilai);
-}
-
-bool NumberRomawi::operator== (const Number& N){
-	return (_nilai == N._nilai);
-}
-
 int NumberRomawi::toInt(string s){
 	int satuan = 0;
 	int puluhan = 0;

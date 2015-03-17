@@ -77,7 +77,7 @@ void Token::_IdentifyPrior() {
       _prior = 2;
   }
   else
-    if(_symToken == "TRUE" || _symToken == "FALSE" || _symToken == "true" || _symToken == "false") // a logic
+    if(_symToken == "TRUE" || _symToken == "FALSE" || _symToken == "true" || _symToken == "false")
       _prior = 0;
     else // a number
       _prior = 1;

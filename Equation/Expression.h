@@ -9,6 +9,7 @@
 #include "../Number/NumberRomawi.h"
 #include "../Extension/Extension.h"
 #include "../Logic/Logic.h"
+#include "../EquationException/EquationException.h"
 
 class Expression {
 public:

@@ -1,84 +1,134 @@
+/**
+* @file stack.h
+**/
+
 #ifndef __STACK_H__
 #define __STACK_H__
 
 #include <cstdlib>
 #include <cassert>
 
-template< class T >
-class list {
-  public:
-    list();
-    list(T _tval);
-    list(T _tval, list<T> * _tnext);
-    list(list<T>& );
-    ~list();
-    list<T> * GetNext();
-    void SetNext(list<T> * _tnext);
-    T& GetVal();
-    void SetVal(T _tval);
-  private:
-    list<T> * _next;
-    T _val;
-};
-
-
+/**
+* @class stack
+* @author Wiwit Rifa'i (13513073)
+* @version 1.0
+* 
+* @section Description
+* @brief kelas stack adalah implementasi vector yang ekuivalen stack STL C++
+**/
 template< class T >
 class stack {
   public:
+    /**
+    * @brief Konstruktor kelas stack.
+    **/
     stack();
+    /**
+    * @brief Copy constructor kelas stack.
+    * @param stack : yang akan di-copy.
+    **/
     stack(const stack<T>& );
+    /**
+    * @brief Destruktor kelas stack.
+    **/
     ~stack();
+    /**
+    * @brief Operator assignment kelas stack.
+    * @param stack : yang akan di-copy.
+    **/
     stack<T>& operator=(const stack<T>& );
-    
+    /**
+    * @brief Mengembalikan predikat apakah stack kosong.
+    * @return bool : predikat kosong stack. 
+    **/
     bool empty();
+    /**
+    * @brief Mengembalikan ukuran stack.
+    * @return int - ukuran stack.
+    **/
     int size();
-    T& top();
+    /**
+    * @brief Mengembalikan elemen teratas stack
+    * @return reference class T : elemen teratas
+    **/
+    T& top();    
+    /**
+    * @brief Menambahkan item pada paling atas stack
+    * @param class T : item yang akan ditambahkan
+    **/
     void push(const T&);
+    /**
+    * @brief Menghapus item pada paling atas stack
+    * @brief I. S. stack tidak kosong.
+    **/
     void pop();
     
   private:
-    list<T> * _top;
+    /**
+    * @class Stack_Elmt
+    * @brief kelas Stack_Elmt bertanggung jawab pada satu buah elemen stack.
+    * @brief kelas Stack_Elmt merupakan inner class dari kelas stack dan hanya bisa dipakai oleh stack.
+    **/    
+    class Stack_Elmt {
+    public :
+      /**
+      * @brief Konstruktor kelas Stack_Elmt.
+      * @param Stack_Elmt * _tnext - berisi address elemen selanjutnya ( default = NULL ).
+      **/
+      Stack_Elmt(Stack_Elmt * _tnext = NULL);
+      /**
+      * @brief Konstruktor kelas Stack_Elmt dengan parameter.
+      * @param T _tval - nilai elemen yang akan diisi.
+      * @param Stack_Elmt * _tnext - berisi address elemen selanjutnya ( default = NULL ).
+      **/
+      Stack_Elmt(const T& _tval, Stack_Elmt * _tnext = NULL);
+      /**
+      * @brief Copy Constructor kelas stack
+      * @param Stack_Elmt& - yang akan di copy.
+      **/
+      Stack_Elmt(const Stack_Elmt& );
+      /**
+      * @brief Destruktor kelas stack
+      **/
+      ~Stack_Elmt();
+      /**
+      * @brief Operator assignment kelas stack
+      * @param Stack_Elmt& - yang akan di copy.
+      **/
+      Stack_Elmt& operator=(const Stack_Elmt& li);
+
+      Stack_Elmt * _next;   // address elemen berikutnya
+      T _val;               // nilai elemen yang disimpan
+    };
+    
+    Stack_Elmt * _top;
     int _size;
 };
 
-/***** Implementasi class list *****/
+
+/***** Implementasi class Stack_Elmt *****/
 template< class T >
-list<T>::list() {
+stack<T>::Stack_Elmt::Stack_Elmt(Stack_Elmt * _tnext) {
   _next = NULL;
 }
 template< class T >
-list<T>::list(T _tval) {
-  _val = _tval;
-  _next = NULL;
-}
-template< class T >
-list<T>::list(T _tval, list<T> * _tnext) {
+stack<T>::Stack_Elmt::Stack_Elmt(const T& _tval, Stack_Elmt * _tnext) {
   _val = _tval;
   _next = _tnext;
 }
 template< class T >
-list<T>::list(list<T>& li) {
+stack<T>::Stack_Elmt::Stack_Elmt(const Stack_Elmt& li) {
   _val = li._val;
   _next = li._next;
 }
 template< class T >
-list<T>::~list() {
+stack<T>::Stack_Elmt::~Stack_Elmt() {
 }
 template< class T >
-list<T> * list<T>::GetNext() {
-  return _next;
-}
-template< class T >
-void list<T>::SetNext(list<T> * _tnext) {
-  _next = _tnext;
-}
-template< class T >
-T& list<T>::GetVal() {
-  return _val;
-}
-template< class T >
-void list<T>::SetVal(T _tval) {
-  _val = _tval;
+typename stack<T>::Stack_Elmt& stack<T>::Stack_Elmt::operator=(const stack<T>::Stack_Elmt& li) {
+  _val = li._val;
+  _next = li._next;
+  return *this;
 }
 
 /***** implementasi class stack *****/
@@ -90,50 +140,50 @@ stack<T>::stack() {
 template< class T >
 stack<T>::stack(const stack<T>& S) {
   _size = S._size;
-  list<T> * src_temp = S._top;
+  Stack_Elmt * src_temp = S._top;
   if(src_temp != NULL) {
-    list<T> * des_temp;
-    des_temp = new list<T>(* src_temp);
+    Stack_Elmt * des_temp;
+    des_temp = new Stack_Elmt(* src_temp);
     _top = des_temp;
-    src_temp = src_temp->GetNext();
+    src_temp = src_temp->_next;
     while(src_temp != NULL) {
-      des_temp->SetNext(new list<T>(* src_temp));
-      des_temp = des_temp->GetNext();
-      src_temp = src_temp->GetNext();
+      des_temp->_next = new Stack_Elmt(* src_temp);
+      des_temp = des_temp->_next;
+      src_temp = src_temp->_next;
     }
   }
 }
 template< class T >
 stack<T>::~stack() {
   /* Delete last stack */
-  list<T> * del_temp;
+  Stack_Elmt * del_temp;
   while(_top != NULL) {
     del_temp = _top;
-    _top = _top->GetNext();
+    _top = _top->_next;
     delete del_temp;
-  }  
+  }
 }
 template< class T >
 stack<T>& stack<T>::operator=(const stack<T>& S) {
   /* Delete last stack */
-  list<T> * del_temp;
+  Stack_Elmt * del_temp;
   while(_top != NULL) {
     del_temp = _top;
-    _top = _top->GetNext();
+    _top = _top->_next;
     delete del_temp;
   }
   /* Copy from stack S */
   _size = S._size;
-  list<T> * src_temp = S._top;
+  Stack_Elmt * src_temp = S._top;
   if(src_temp != NULL) {
-    list<T> * des_temp;
-    des_temp = new list<T>(* src_temp);
+    Stack_Elmt * des_temp;
+    des_temp = new Stack_Elmt(* src_temp);
     _top = des_temp;
-    src_temp = src_temp->GetNext();
+    src_temp = src_temp->_next;
     while(src_temp != NULL) {
-      des_temp->SetNext(new list<T>(* src_temp));
-      des_temp = des_temp->GetNext();
-      src_temp = src_temp->GetNext();
+      des_temp->_next = new Stack_Elmt(* src_temp);
+      des_temp = des_temp->_next;
+      src_temp = src_temp->_next;
     }
   }
   return *this;
@@ -148,18 +198,18 @@ int stack<T>::size() {
 }
 template< class T >
 T& stack<T>::top() {
-  return _top->GetVal();
+  return _top->_val;
 }
 template< class T >
 void stack<T>::push(const T& _new) {
-  _top = new list<T>(_new, _top);
+  _top = new Stack_Elmt(_new, _top);
   _size++;
 }
 template< class T >
 void stack<T>::pop() {
   assert(_top != NULL);
-  list<T> * delTop = _top;
-  _top = _top->GetNext();
+  Stack_Elmt * delTop = _top;
+  _top = _top->_next;
   delete delTop;
   _size--;
 }

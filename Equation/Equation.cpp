@@ -1,3 +1,7 @@
+/**
+* @file Equation.cpp
+**/
+
 #include "Equation.h"
 
 using namespace std;
@@ -64,9 +68,9 @@ void Equation::SolveMathematical() {
       if(res.empty())
         throw(EquationException(EquationException::IllegalUsingOperator));
       opn2 = res.top(); res.pop();
-      cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
+//      cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
       opn1 = CalculateNumber(opn1, opr, opn2);
-      cout << opn1->GetSymToken() << endl;
+//      cout << opn1->GetSymToken() << endl;
       res.push(opn1);
     }
     else
@@ -99,7 +103,7 @@ void Equation::SolveLogical() {
           throw(EquationException(EquationException::IllegalUsingOperator));
         
         if(opr->GetSymToken()[0] == '~') {// kasus operator unary negasi (~)
-          cout << opr-> GetSymToken() << " " << opl1->GetSymToken() << " = " << (~(*opl1)).GetSymToken() << endl;
+//          cout << opr-> GetSymToken() << " " << opl1->GetSymToken() << " = " << (~(*opl1)).GetSymToken() << endl;
           (*opl1) = ~(*opl1);
           res.push(opl1);
           continue;
@@ -111,9 +115,9 @@ void Equation::SolveLogical() {
         if(opl2->GetPrior() != 0)
           throw(EquationException(EquationException::IllegalUsingOperator));
         
-        cout << opl1-> GetSymToken() << " " << opr->GetSymToken() << " " << opl2->GetSymToken() << " = ";
+//        cout << opl1-> GetSymToken() << " " << opr->GetSymToken() << " " << opl2->GetSymToken() << " = ";
         opl1 = CalculateLogic(opl1, opr, opl2);
-        cout << opl1->GetSymToken() << endl;
+//        cout << opl1->GetSymToken() << endl;
         res.push((Token *)opl1);
       }
       else { // hitung number
@@ -127,15 +131,15 @@ void Equation::SolveLogical() {
         if(opn2->GetPrior() != 1)
           throw(EquationException(EquationException::IllegalUsingOperator));
         
-        cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
+//        cout << opn1-> GetSymToken() << " " << opr->GetSymToken() << " " << opn2->GetSymToken() << " = ";
         if(opr->GetPrior()>8) {
           opn1 = CalculateNumber(opn1, opr, opn2);
-          cout << opn1->GetSymToken() << endl;
+//          cout << opn1->GetSymToken() << endl;
           res.push((Token *)opn1);
         }
         else {
           opl1 = CalculateNumberToLogic(opn1, opr, opn2);
-          cout << opl1->GetSymToken() << endl;
+//          cout << opl1->GetSymToken() << endl;
           res.push((Token *)opl1);
         }
       }

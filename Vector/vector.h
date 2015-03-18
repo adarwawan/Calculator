@@ -31,8 +31,7 @@ public:
   **/
   vector<T>& operator= (vector<T>);
   /**
-  * @brief Operator assignment kelas vector.
-  * @param vector : yang akan di-copy
+  * @brief Destruktor kelas vector.
   **/
   ~vector();
   

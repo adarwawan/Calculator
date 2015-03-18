@@ -1,3 +1,7 @@
+/**
+* @file Expression.cpp
+**/
+
 #include "Expression.h"
 
 Expression::Expression() {
@@ -27,6 +31,11 @@ Expression::~Expression() {
     delete t;
   }
 }
+Expression& Expression::operator=(const Expression& E) {
+  _stackToken = E._stackToken;
+  return *this;
+}
+
 void Expression::_stringToTokens(const string& _strEq, int modeEquation, int modeNumber) {
 /* mengubah string menjadi stack of token */
   int pos = 0, len = 0, i = 0;

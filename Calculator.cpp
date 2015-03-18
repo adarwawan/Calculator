@@ -1,4 +1,4 @@
-#include "ClassController/ClassController.h"
+#include "Command/ClassController.h"
 
 int main() {
   ClassController* controller = new ClassController();

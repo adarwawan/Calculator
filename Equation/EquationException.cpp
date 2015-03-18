@@ -25,6 +25,13 @@ EquationException::EquationException(int id): _msg_id(id) {
 EquationException::EquationException(const EquationException& s):_msg_id(s._msg_id) {
 }
 
+EquationException::~EquationException() {
+}
+  
+EquationException& EquationException::operator=(const EquationException&) {
+  return *this;
+}
+
 int EquationException::getNumOfException() {
   return _num_ex;
 }

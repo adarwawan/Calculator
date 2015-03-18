@@ -1,56 +1,86 @@
+/**
+* @file Token.h
+**/
+
 #include <iostream>
 #include "Token.h"
 
 using namespace std;
-
-/* Constructor of Token */
+  /**
+  * @brief Konstruktor kelas Token dengan Parameter.
+  * @param S - String yang menjadi anggota token.
+  **/
 Token::Token(string S) {
   _symToken = S;
   _isOperator = _IdentifyToken();
   _IdentifyPrior();
 }
-
-/* Copy Constructor of Token */
+  /**
+  * @brief Copy Konstruktor kelas Token.
+  * @param T - Variabel Token masukan.
+  * @return Ti - Variabel Token yang tercopy.
+  **/
 Token::Token(const Token& T) {
   this->_symToken = T._symToken;
   this->_isOperator = T._isOperator;
   this->_prior = T._prior;
 }
-
-/* Assignment of Token */
+  /**
+  * @brief Assignment kelas Logic.
+  * @param T - Variabel Token masukan.
+  * @return Ti - Variabel Token yang terassign.
+  **/
 Token& Token::operator=(const Token& T) {
   this->_symToken = T._symToken;
   this->_isOperator = T._isOperator;
   this->_prior = T._prior;
   return *this; 
 }
-
-/* Destructor of Token */
+  /**
+  * @brief Destruktor kelas Token.
+  **/
 Token::~Token() {
 }
 
-/* Getter and Setter */
+  
+  /**
+  * @brief Getter untuk mendapatkan nilai _symToken.
+  * @return S - string nilai _symToken.
+  **/
 string Token::GetSymToken() const {
   return _symToken;
 }
-
+  /**
+  * @brief Getter untuk mendapatkan nilai _isOperator.
+  * @return bool - boolean nilai _isOperator.
+  **/
 bool Token::GetIsOperator() {
   return _isOperator;
 }
-
+  /**
+  * @brief Setter untuk mengubah nilai _symToken.
+  * @param S - nilai _symToken yang akan dimasukkan.
+  **/
 void Token::SetSymToken(string S) {
   _symToken = S;
   _isOperator = _IdentifyToken();
   _IdentifyPrior();
 }
 
-/* Other Method */
+  /**
+  * @brief Set nilai _isOperator berdasarkan _symToken.
+  * @return bool - nilai _isOperator
+  **/
 bool Token::_IdentifyToken() {
   if ((_symToken[0] == '-') && (_symToken.length() > 1))
     return false;
   else
     return (_symToken[0] < '0' || _symToken[0] > '9') && (_symToken[0] < 'A' || _symToken[0] > 'Z') && (_symToken[0] < 'a' || _symToken[0] > 'z');
 }
+  /**
+  * @brief Set nilai _prior berdasarkan _symToken (untuk operator).
+  * @return int - nilai _prior.
+  **/
 void Token::_IdentifyPrior() {
   if(_isOperator) {
     /* Prioritas operator relatif berdasarkan http://en.wikipedia.org/wiki/Order_of_operations */
@@ -77,11 +107,15 @@ void Token::_IdentifyPrior() {
       _prior = 2;
   }
   else
-    if(_symToken == "TRUE" || _symToken == "FALSE" || _symToken == "true" || _symToken == "false")
+    if(_symToken == "TRUE" || _symToken == "FALSE" || _symToken == "true" || _symToken == "false") // a logic
       _prior = 0;
     else // a number
       _prior = 1;
 }
+  /**
+  * @brief Getter untuk mendapatkan nilai _prior.
+  * @return i - integer nilai _prior.
+  **/
 int Token::GetPrior() {
   return _prior;
 }

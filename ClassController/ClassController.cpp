@@ -1,6 +1,6 @@
-#include "Manager.h"
+#include "ClassController.h"
 
-Manager::Manager() {
+ClassController::ClassController() {
   _expressionMode = Extension::defaultExpressionMode;
   _equationMode = Extension::defaultEquationMode;
   _numberMode = Extension::defaultNumberMode;
@@ -31,7 +31,7 @@ Manager::Manager() {
   printf("Bye bye\n");
 }
 
-Manager::Manager(const Manager& man) {
+ClassController::ClassController(const ClassController& man) {
   this->_expressionMode = man._expressionMode;
   this->_equationMode = man._equationMode;
   this->_numberMode = man._numberMode;
@@ -40,7 +40,7 @@ Manager::Manager(const Manager& man) {
   this->_logger = new Logger(*man._logger);
 }
 
-Manager& Manager::operator=(const Manager& man) {
+ClassController& ClassController::operator=(const ClassController& man) {
   delete _reader;
   delete _saver;
   delete _logger;
@@ -53,13 +53,13 @@ Manager& Manager::operator=(const Manager& man) {
   return *this;
 }
 
-Manager::~Manager() {
+ClassController::~ClassController() {
   delete _reader;
   delete _saver;
   delete _logger;
 }
 
-void Manager::ExecuteExpression(string buffer) {
+void ClassController::ExecuteExpression(string buffer) {
   Equation solver(buffer, _expressionMode, _equationMode, _numberMode);
   if(_equationMode == Extension::NumberMode) {
     solver.SolveMathematical();
@@ -71,7 +71,7 @@ void Manager::ExecuteExpression(string buffer) {
   printf("%s\n", solver.GetResult().c_str());
 }
 
-void Manager::ExecuteCommand(string buffer) {
+void ClassController::ExecuteCommand(string buffer) {
   stringstream ss(buffer);
   string temp, word;
   int n;
@@ -122,7 +122,7 @@ void Manager::ExecuteCommand(string buffer) {
   }
 }
 
-void Manager::Redo(int n) {
+void ClassController::Redo(int n) {
   int redo = _logger->RedoEquation(n);
   if(redo == 0) {
     printf("Redo tidak dapat dilakukan.\n");
@@ -131,7 +131,7 @@ void Manager::Redo(int n) {
   }
 }
 
-void Manager::Undo(int n) {
+void ClassController::Undo(int n) {
   int undo = _logger->UndoEquation(n);
   if(undo == 0) {
     printf("Undo tidak dapat dilakukan.\n");
@@ -140,37 +140,37 @@ void Manager::Undo(int n) {
   }
 }
 
-void Manager::SetExpressionMode(int expressionMode) {
+void ClassController::SetExpressionMode(int expressionMode) {
   _expressionMode = expressionMode;
   printf("Set expression mode success.\n");
 }
 
-void Manager::SetEquationMode(int equationMode) {
+void ClassController::SetEquationMode(int equationMode) {
   _equationMode = equationMode;
   printf("Set equation mode success.\n");
 }
 
-void Manager::SetNumberMode(int numberMode) {
+void ClassController::SetNumberMode(int numberMode) {
   _numberMode = numberMode;
   printf("Set number mode success.\n");
 }
 
-void Manager::ResetSetting() {
+void ClassController::ResetSetting() {
   _expressionMode = Extension::defaultExpressionMode;
   _equationMode = Extension::defaultEquationMode;
   _numberMode = Extension::defaultNumberMode;
   printf("Reset setting to default success.\n");
 }
 
-void Manager::ShowMem(int n) {
+void ClassController::ShowMem(int n) {
   _logger->ShowMem(n);
 }
 
-void Manager::ShowMemAll() {
+void ClassController::ShowMemAll() {
   _logger->ShowMemAll();
 }
 
-void Manager::Help() {
+void ClassController::Help() {
   // show what command we are offering here
   // list command yang ditawarkan ada di doc RencanaKelasImplementasi, udah gw update
   printf("\n");
@@ -206,7 +206,7 @@ void Manager::Help() {
   printf(" Setting berada dalam default mode ketika awal run program\n\n");
 }
 
-void Manager::ViewSetting() {
+void ClassController::ViewSetting() {
   // belum selesai
   printf("Setting expression : ");
   if(_expressionMode == Extension::Prefix) {

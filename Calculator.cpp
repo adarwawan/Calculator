@@ -1,7 +1,7 @@
-#include "Manager/Manager.h"
+#include "ClassController/ClassController.h"
 
 int main() {
-  Manager* man = new Manager();
-  delete man;
+  ClassController* controller = new ClassController();
+  delete controller;
   return 0;
 }

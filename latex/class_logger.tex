@@ -1,0 +1,308 @@
+\hypertarget{class_logger}{}\section{Logger Class Reference}
+\label{class_logger}\index{Logger@{Logger}}
+
+
+Kelas \hyperlink{class_log}{Log} adalah abstract data type untuk log command.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_logger_abc41bfb031d896170c7675fa96a6b30c}{}\hyperlink{class_logger_abc41bfb031d896170c7675fa96a6b30c}{Logger} ()\label{class_logger_abc41bfb031d896170c7675fa96a6b30c}
+
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas logger. \end{DoxyCompactList}\item 
+\hyperlink{class_logger_a8272fd5aa9d2cfd23c0a785efb84e5aa}{Logger} (\hyperlink{classvector}{vector}$<$ \hyperlink{class_log}{Log} $>$, \hyperlink{classvector}{vector}$<$ \hyperlink{class_log}{Log} $>$)
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas logger dengan parameter. \end{DoxyCompactList}\item 
+\hyperlink{class_logger_a6d00ba1af86d2af7f048023137df724a}{Logger} (\hyperlink{classvector}{vector}$<$ \hyperlink{class_log}{Log} $>$, \hyperlink{classvector}{vector}$<$ \hyperlink{class_log}{Log} $>$, int)
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas logger dengan parameter. \end{DoxyCompactList}\item 
+\hyperlink{class_logger_ad1dc4093a3d8c26802357fe2bdb1dabf}{Logger} (const \hyperlink{class_logger}{Logger} \&)
+\begin{DoxyCompactList}\small\item\em Copy constructor kelas logger. \end{DoxyCompactList}\item 
+\hyperlink{class_logger}{Logger} \& \hyperlink{class_logger_a405b93221b9f3c4293447ed1bf4b77d2}{operator=} (const \hyperlink{class_logger}{Logger} \&)
+\begin{DoxyCompactList}\small\item\em Operator assignment kelas \hyperlink{class_logger}{Logger}. \end{DoxyCompactList}\item 
+\hypertarget{class_logger_acb668a9e186a25fbaad2e4af6d1ed00a}{}\hyperlink{class_logger_acb668a9e186a25fbaad2e4af6d1ed00a}{$\sim$\+Logger} ()\label{class_logger_acb668a9e186a25fbaad2e4af6d1ed00a}
+
+\begin{DoxyCompactList}\small\item\em Destruktor kelas \hyperlink{class_logger}{Logger}. \end{DoxyCompactList}\item 
+\hyperlink{class_log}{Log} \hyperlink{class_logger_a17879024b3d7becb09c6a4f97d3b0864}{Get\+Command} (int)
+\begin{DoxyCompactList}\small\item\em Getter \hyperlink{class_log}{Log} Commands dengan indeks tertentu. \end{DoxyCompactList}\item 
+\hyperlink{class_log}{Log} \hyperlink{class_logger_a375befae83c2783b4dae46345dab4466}{Get\+Equation} (int)
+\begin{DoxyCompactList}\small\item\em Getter \hyperlink{class_log}{Log} Equations dengan indeks tertentu. \end{DoxyCompactList}\item 
+int \hyperlink{class_logger_aeabc3b7d9fa5e616649f9779592907dd}{Get\+Size\+Commands} ()
+\begin{DoxyCompactList}\small\item\em Getter ukuran commands yang valid. \end{DoxyCompactList}\item 
+int \hyperlink{class_logger_a8b8bee01fd0f6e9d1782da3536b57b89}{Get\+Size\+Equations} ()
+\begin{DoxyCompactList}\small\item\em Getter ukuran equations yang valid. \end{DoxyCompactList}\item 
+\hypertarget{class_logger_a1191038d1044a1121e03cc267e9c681c}{}void \hyperlink{class_logger_a1191038d1044a1121e03cc267e9c681c}{Clear} ()\label{class_logger_a1191038d1044a1121e03cc267e9c681c}
+
+\begin{DoxyCompactList}\small\item\em Menghilangkan seluruh commands dan equations di memori. \end{DoxyCompactList}\item 
+\hypertarget{class_logger_a9adae6b89c3f6e6e21fde39fa5028bff}{}void \hyperlink{class_logger_a9adae6b89c3f6e6e21fde39fa5028bff}{Clear\+Commands} ()\label{class_logger_a9adae6b89c3f6e6e21fde39fa5028bff}
+
+\begin{DoxyCompactList}\small\item\em Menghilangkan commands di memori. \end{DoxyCompactList}\item 
+\hypertarget{class_logger_a661750c096426b6f5e9d3997720b6850}{}void \hyperlink{class_logger_a661750c096426b6f5e9d3997720b6850}{Clear\+Equations} ()\label{class_logger_a661750c096426b6f5e9d3997720b6850}
+
+\begin{DoxyCompactList}\small\item\em Menghilangkan commands di equations. \end{DoxyCompactList}\item 
+void \hyperlink{class_logger_a5b252a46f23b39518ec7984a04b04d5a}{Add\+Command} (\hyperlink{class_log}{Log})
+\begin{DoxyCompactList}\small\item\em Menambahkan log pada list of commands. \end{DoxyCompactList}\item 
+void \hyperlink{class_logger_a97e6d60cd413fbd1e10f46be2648ffea}{Add\+Equation} (\hyperlink{class_log}{Log})
+\begin{DoxyCompactList}\small\item\em Menambahkan log pada list of equations. \end{DoxyCompactList}\item 
+int \hyperlink{class_logger_aafe697aae2c001604c9eefde6c858bd7}{Undo\+Equation} (int)
+\begin{DoxyCompactList}\small\item\em Membatalkan equation yang telah ditambah. \end{DoxyCompactList}\item 
+int \hyperlink{class_logger_ae4db4ef133988b05ebfd290fc882b326}{Redo\+Equation} (int)
+\begin{DoxyCompactList}\small\item\em Melakukan kembali equation yang telah di-\/undo. \end{DoxyCompactList}\item 
+void \hyperlink{class_logger_a5e42b642372b04412b0489133ccce892}{Show\+Mem} (int)
+\begin{DoxyCompactList}\small\item\em Menampilkan memori kembali ke layar. \end{DoxyCompactList}\item 
+\hypertarget{class_logger_aa52536c24887d0ba9c9ed52460ef837d}{}void \hyperlink{class_logger_aa52536c24887d0ba9c9ed52460ef837d}{Show\+Mem\+All} ()\label{class_logger_aa52536c24887d0ba9c9ed52460ef837d}
+
+\begin{DoxyCompactList}\small\item\em Menampilkan semua memori kembali ke layar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Kelas \hyperlink{class_log}{Log} adalah abstract data type untuk log command. 
+
+\begin{DoxyAuthor}{Author}
+Luqman A. Siswanto (13513024) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\hypertarget{class_logger_Description}{}\subsection{Description}\label{class_logger_Description}
+\hypertarget{class_logger_Rule}{}\subsection{Rule}\label{class_logger_Rule}
+Semua dalam vector commands dijamin valid (tidak ada operasi undo/redo) Seluruh isi vector equations belum tentu valid karena bisa jadi hasil undo 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_logger_a8272fd5aa9d2cfd23c0a785efb84e5aa}{}\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\subsubsection[{Logger}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf vector}$<$ {\bf Log} $>$}]{commands, }
+\item[{{\bf vector}$<$ {\bf Log} $>$}]{equations}
+\end{DoxyParamCaption}
+)}\label{class_logger_a8272fd5aa9d2cfd23c0a785efb84e5aa}
+
+
+Konstruktor kelas logger dengan parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classvector}{vector$<$\+Log$>$}} & -\/ commands \\
+\hline
+{\em \hyperlink{classvector}{vector$<$\+Log$>$}} & -\/ equations \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_logger_a6d00ba1af86d2af7f048023137df724a}{}\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\subsubsection[{Logger}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::\+Logger (
+\begin{DoxyParamCaption}
+\item[{{\bf vector}$<$ {\bf Log} $>$}]{commands, }
+\item[{{\bf vector}$<$ {\bf Log} $>$}]{equations, }
+\item[{int}]{size\+Equations}
+\end{DoxyParamCaption}
+)}\label{class_logger_a6d00ba1af86d2af7f048023137df724a}
+
+
+Konstruktor kelas logger dengan parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classvector}{vector$<$\+Log$>$}} & -\/ commands \\
+\hline
+{\em \hyperlink{classvector}{vector$<$\+Log$>$}} & -\/ equations \\
+\hline
+{\em int} & -\/ ukuran equations yang valid \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_logger_ad1dc4093a3d8c26802357fe2bdb1dabf}{}\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\subsubsection[{Logger}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::\+Logger (
+\begin{DoxyParamCaption}
+\item[{const {\bf Logger} \&}]{logger}
+\end{DoxyParamCaption}
+)}\label{class_logger_ad1dc4093a3d8c26802357fe2bdb1dabf}
+
+
+Copy constructor kelas logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_logger}{Logger}} & -\/ logger yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_logger_a5b252a46f23b39518ec7984a04b04d5a}{}\index{Logger@{Logger}!Add\+Command@{Add\+Command}}
+\index{Add\+Command@{Add\+Command}!Logger@{Logger}}
+\subsubsection[{Add\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::\+Add\+Command (
+\begin{DoxyParamCaption}
+\item[{{\bf Log}}]{log}
+\end{DoxyParamCaption}
+)}\label{class_logger_a5b252a46f23b39518ec7984a04b04d5a}
+
+
+Menambahkan log pada list of commands. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_log}{Log}} & -\/ yang akan ditambah \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_logger_a97e6d60cd413fbd1e10f46be2648ffea}{}\index{Logger@{Logger}!Add\+Equation@{Add\+Equation}}
+\index{Add\+Equation@{Add\+Equation}!Logger@{Logger}}
+\subsubsection[{Add\+Equation}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::\+Add\+Equation (
+\begin{DoxyParamCaption}
+\item[{{\bf Log}}]{log}
+\end{DoxyParamCaption}
+)}\label{class_logger_a97e6d60cd413fbd1e10f46be2648ffea}
+
+
+Menambahkan log pada list of equations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_log}{Log}} & -\/ yang akan ditambah \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_logger_a17879024b3d7becb09c6a4f97d3b0864}{}\index{Logger@{Logger}!Get\+Command@{Get\+Command}}
+\index{Get\+Command@{Get\+Command}!Logger@{Logger}}
+\subsubsection[{Get\+Command}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Log} Logger\+::\+Get\+Command (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{class_logger_a17879024b3d7becb09c6a4f97d3b0864}
+
+
+Getter \hyperlink{class_log}{Log} Commands dengan indeks tertentu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ indeks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_log}{Log} -\/ \hyperlink{class_log}{Log} Command dengan indeks tertentu 
+\end{DoxyReturn}
+\hypertarget{class_logger_a375befae83c2783b4dae46345dab4466}{}\index{Logger@{Logger}!Get\+Equation@{Get\+Equation}}
+\index{Get\+Equation@{Get\+Equation}!Logger@{Logger}}
+\subsubsection[{Get\+Equation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Log} Logger\+::\+Get\+Equation (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{class_logger_a375befae83c2783b4dae46345dab4466}
+
+
+Getter \hyperlink{class_log}{Log} Equations dengan indeks tertentu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ indeks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_log}{Log} -\/ \hyperlink{class_log}{Log} \hyperlink{class_equation}{Equation} dengan indeks tertentu 
+\end{DoxyReturn}
+\hypertarget{class_logger_aeabc3b7d9fa5e616649f9779592907dd}{}\index{Logger@{Logger}!Get\+Size\+Commands@{Get\+Size\+Commands}}
+\index{Get\+Size\+Commands@{Get\+Size\+Commands}!Logger@{Logger}}
+\subsubsection[{Get\+Size\+Commands}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+::\+Get\+Size\+Commands (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_logger_aeabc3b7d9fa5e616649f9779592907dd}
+
+
+Getter ukuran commands yang valid. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ commands size 
+\end{DoxyReturn}
+\hypertarget{class_logger_a8b8bee01fd0f6e9d1782da3536b57b89}{}\index{Logger@{Logger}!Get\+Size\+Equations@{Get\+Size\+Equations}}
+\index{Get\+Size\+Equations@{Get\+Size\+Equations}!Logger@{Logger}}
+\subsubsection[{Get\+Size\+Equations}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+::\+Get\+Size\+Equations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_logger_a8b8bee01fd0f6e9d1782da3536b57b89}
+
+
+Getter ukuran equations yang valid. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ equations size 
+\end{DoxyReturn}
+\hypertarget{class_logger_a405b93221b9f3c4293447ed1bf4b77d2}{}\index{Logger@{Logger}!operator=@{operator=}}
+\index{operator=@{operator=}!Logger@{Logger}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Logger} \& Logger\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Logger} \&}]{logger}
+\end{DoxyParamCaption}
+)}\label{class_logger_a405b93221b9f3c4293447ed1bf4b77d2}
+
+
+Operator assignment kelas \hyperlink{class_logger}{Logger}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_logger}{Logger}} & -\/ logger yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_logger_ae4db4ef133988b05ebfd290fc882b326}{}\index{Logger@{Logger}!Redo\+Equation@{Redo\+Equation}}
+\index{Redo\+Equation@{Redo\+Equation}!Logger@{Logger}}
+\subsubsection[{Redo\+Equation}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+::\+Redo\+Equation (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{class_logger_ae4db4ef133988b05ebfd290fc882b326}
+
+
+Melakukan kembali equation yang telah di-\/undo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ berapa item redo yang diminta \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ berapa item redo yang berhasil dilakukan 
+\end{DoxyReturn}
+\hypertarget{class_logger_a5e42b642372b04412b0489133ccce892}{}\index{Logger@{Logger}!Show\+Mem@{Show\+Mem}}
+\index{Show\+Mem@{Show\+Mem}!Logger@{Logger}}
+\subsubsection[{Show\+Mem}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::\+Show\+Mem (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{class_logger_a5e42b642372b04412b0489133ccce892}
+
+
+Menampilkan memori kembali ke layar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ berapa item yang akan ditampilkan ke layar \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_logger_aafe697aae2c001604c9eefde6c858bd7}{}\index{Logger@{Logger}!Undo\+Equation@{Undo\+Equation}}
+\index{Undo\+Equation@{Undo\+Equation}!Logger@{Logger}}
+\subsubsection[{Undo\+Equation}]{\setlength{\rightskip}{0pt plus 5cm}int Logger\+::\+Undo\+Equation (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{class_logger_aafe697aae2c001604c9eefde6c858bd7}
+
+
+Membatalkan equation yang telah ditambah. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ berapa item undo yang diminta \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ berapa item undo yang berhasil dilakukan 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Logger/Logger.\+h\item 
+Logger/Logger.\+cpp\end{DoxyCompactItemize}

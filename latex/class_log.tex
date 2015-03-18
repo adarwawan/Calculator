@@ -1,0 +1,169 @@
+\hypertarget{class_log}{}\section{Log Class Reference}
+\label{class_log}\index{Log@{Log}}
+
+
+Kelas \hyperlink{class_log}{Log} adalah abstract data type untuk log command.  
+
+
+
+
+{\ttfamily \#include $<$Log.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_log_af6071a60aa52b6c1b511f99b4bc1b8fe}{}\hyperlink{class_log_af6071a60aa52b6c1b511f99b4bc1b8fe}{Log} ()\label{class_log_af6071a60aa52b6c1b511f99b4bc1b8fe}
+
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas \hyperlink{class_log}{Log}. \end{DoxyCompactList}\item 
+\hyperlink{class_log_a0f45072d0b622c4d4f70bb0ef63bef42}{Log} (int, string)
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas \hyperlink{class_log}{Log} dengan parameter. \end{DoxyCompactList}\item 
+\hyperlink{class_log_a60fc11c5c263c4bfad3f9561a4881a13}{Log} (const \hyperlink{class_log}{Log} \&)
+\begin{DoxyCompactList}\small\item\em Copy Constructor kelas \hyperlink{class_log}{Log}. \end{DoxyCompactList}\item 
+\hyperlink{class_log}{Log} \& \hyperlink{class_log_a91f9df208ee0515b6403210497d37ee4}{operator=} (const \hyperlink{class_log}{Log} \&)
+\begin{DoxyCompactList}\small\item\em Operator assignment kelas \hyperlink{class_log}{Log}. \end{DoxyCompactList}\item 
+\hypertarget{class_log_a0fbfda88fbee5027c89f6eb121059360}{}\hyperlink{class_log_a0fbfda88fbee5027c89f6eb121059360}{$\sim$\+Log} ()\label{class_log_a0fbfda88fbee5027c89f6eb121059360}
+
+\begin{DoxyCompactList}\small\item\em Destruktor kelas \hyperlink{class_log}{Log}. \end{DoxyCompactList}\item 
+int \hyperlink{class_log_a14536320d9f23ef128cdb004a82d2b83}{Get\+I\+D} ()
+\begin{DoxyCompactList}\small\item\em Getter untuk I\+D. \end{DoxyCompactList}\item 
+string \hyperlink{class_log_af9f902b597baafe71409025441f0a3e0}{Get\+Sentence} ()
+\begin{DoxyCompactList}\small\item\em Getter untuk kalimat log. \end{DoxyCompactList}\item 
+void \hyperlink{class_log_a1461ddc76218e915e28d6448c35057ec}{Set\+I\+D} (int)
+\begin{DoxyCompactList}\small\item\em Setter untuk I\+D. \end{DoxyCompactList}\item 
+void \hyperlink{class_log_a312454df078b83a74e5559f2dd1d69ea}{Set\+Sentence} (string)
+\begin{DoxyCompactList}\small\item\em Setter untuk sentence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Kelas \hyperlink{class_log}{Log} adalah abstract data type untuk log command. 
+
+\begin{DoxyAuthor}{Author}
+Luqman A. Siswanto (13513024) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\hypertarget{class_logger_Description}{}\subsection{Description}\label{class_logger_Description}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_log_a0f45072d0b622c4d4f70bb0ef63bef42}{}\index{Log@{Log}!Log@{Log}}
+\index{Log@{Log}!Log@{Log}}
+\subsubsection[{Log}]{\setlength{\rightskip}{0pt plus 5cm}Log\+::\+Log (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{string}]{sentence}
+\end{DoxyParamCaption}
+)}\label{class_log_a0f45072d0b622c4d4f70bb0ef63bef42}
+
+
+Konstruktor kelas \hyperlink{class_log}{Log} dengan parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ I\+D. \\
+\hline
+{\em string} & -\/ command pada log yang akan disimpan \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_log_a60fc11c5c263c4bfad3f9561a4881a13}{}\index{Log@{Log}!Log@{Log}}
+\index{Log@{Log}!Log@{Log}}
+\subsubsection[{Log}]{\setlength{\rightskip}{0pt plus 5cm}Log\+::\+Log (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log} \&}]{log}
+\end{DoxyParamCaption}
+)}\label{class_log_a60fc11c5c263c4bfad3f9561a4881a13}
+
+
+Copy Constructor kelas \hyperlink{class_log}{Log}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_log}{Log}} & yang akan di-\/copy. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_log_a14536320d9f23ef128cdb004a82d2b83}{}\index{Log@{Log}!Get\+I\+D@{Get\+I\+D}}
+\index{Get\+I\+D@{Get\+I\+D}!Log@{Log}}
+\subsubsection[{Get\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int Log\+::\+Get\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_log_a14536320d9f23ef128cdb004a82d2b83}
+
+
+Getter untuk I\+D. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ I\+D pada log. 
+\end{DoxyReturn}
+\hypertarget{class_log_af9f902b597baafe71409025441f0a3e0}{}\index{Log@{Log}!Get\+Sentence@{Get\+Sentence}}
+\index{Get\+Sentence@{Get\+Sentence}!Log@{Log}}
+\subsubsection[{Get\+Sentence}]{\setlength{\rightskip}{0pt plus 5cm}string Log\+::\+Get\+Sentence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_log_af9f902b597baafe71409025441f0a3e0}
+
+
+Getter untuk kalimat log. 
+
+\begin{DoxyReturn}{Returns}
+string -\/ sentence. 
+\end{DoxyReturn}
+\hypertarget{class_log_a91f9df208ee0515b6403210497d37ee4}{}\index{Log@{Log}!operator=@{operator=}}
+\index{operator=@{operator=}!Log@{Log}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Log} \& Log\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log} \&}]{log}
+\end{DoxyParamCaption}
+)}\label{class_log_a91f9df208ee0515b6403210497d37ee4}
+
+
+Operator assignment kelas \hyperlink{class_log}{Log}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_log}{Log}} & yang akan di-\/copy. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_log_a1461ddc76218e915e28d6448c35057ec}{}\index{Log@{Log}!Set\+I\+D@{Set\+I\+D}}
+\index{Set\+I\+D@{Set\+I\+D}!Log@{Log}}
+\subsubsection[{Set\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+::\+Set\+I\+D (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_log_a1461ddc76218e915e28d6448c35057ec}
+
+
+Setter untuk I\+D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ I\+D log. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_log_a312454df078b83a74e5559f2dd1d69ea}{}\index{Log@{Log}!Set\+Sentence@{Set\+Sentence}}
+\index{Set\+Sentence@{Set\+Sentence}!Log@{Log}}
+\subsubsection[{Set\+Sentence}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+::\+Set\+Sentence (
+\begin{DoxyParamCaption}
+\item[{string}]{sentence}
+\end{DoxyParamCaption}
+)}\label{class_log_a312454df078b83a74e5559f2dd1d69ea}
+
+
+Setter untuk sentence. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & -\/ sentence. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Logger/Log.\+h\item 
+Logger/Log.\+cpp\end{DoxyCompactItemize}

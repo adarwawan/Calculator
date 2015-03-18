@@ -1,15 +1,15 @@
 #ifndef __EXPRESSION_H
 #define __EXPRESSION_H
 
+#include "EquationException.h"
 #include <string>
 #include <cassert>
 #include "../Stack/stack.h"
+#include "../Token/Logic.h"
 #include "../Token/Token.h"
-#include "../Number/NumberArab.h"
-#include "../Number/NumberRomawi.h"
+#include "../Token/NumberArab.h"
+#include "../Token/NumberRomawi.h"
 #include "../Extension/Extension.h"
-#include "../Logic/Logic.h"
-#include "../EquationException/EquationException.h"
 
 class Expression {
 public:

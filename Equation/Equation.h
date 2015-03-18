@@ -2,7 +2,7 @@
 #define __EQUATION_H_
 
 #include "Expression.h"
-#include "..\EquationException\EquationException.h"
+#include "EquationException.h"
 
 class Equation : public Expression {
 public:

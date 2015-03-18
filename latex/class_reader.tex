@@ -1,0 +1,112 @@
+\hypertarget{class_reader}{}\section{Reader Class Reference}
+\label{class_reader}\index{Reader@{Reader}}
+
+
+Kelas \hyperlink{class_reader}{Reader} bertugas menerima input dari user kemudian mengkategorikan input tersebut termasuk command atau ekspresi.  
+
+
+
+
+{\ttfamily \#include $<$Reader.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_reader_adcda31b507720ab44044d7a21686fba2}{}\hyperlink{class_reader_adcda31b507720ab44044d7a21686fba2}{Reader} ()\label{class_reader_adcda31b507720ab44044d7a21686fba2}
+
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas \hyperlink{class_reader}{Reader}. \end{DoxyCompactList}\item 
+\hyperlink{class_reader_a22be4123536f4d9a5432290fabb8971c}{Reader} (const \hyperlink{class_reader}{Reader} \&)
+\begin{DoxyCompactList}\small\item\em Copy constructor kelas logger. \end{DoxyCompactList}\item 
+\hyperlink{class_reader}{Reader} \& \hyperlink{class_reader_ace806a7f7b055341c10af595fedcd5f4}{operator=} (const \hyperlink{class_reader}{Reader} \&)
+\begin{DoxyCompactList}\small\item\em Copy constructor kelas logger. \end{DoxyCompactList}\item 
+\hypertarget{class_reader_a78089542fd27a0ac2df6702fffe8725c}{}\hyperlink{class_reader_a78089542fd27a0ac2df6702fffe8725c}{$\sim$\+Reader} ()\label{class_reader_a78089542fd27a0ac2df6702fffe8725c}
+
+\begin{DoxyCompactList}\small\item\em Destruktor kelas logger. \end{DoxyCompactList}\item 
+string \hyperlink{class_reader_a418c58459e774307fce1d5cc93e23d37}{Read} ()
+\begin{DoxyCompactList}\small\item\em Membaca perintah dari user sekaligus meng-\/update data member is\+Equation. \end{DoxyCompactList}\item 
+bool \hyperlink{class_reader_aa5bd7ae7e8c0e982124fac3289277990}{Is\+Equation} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan predikat apakah sebuah string merupakan equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Kelas \hyperlink{class_reader}{Reader} bertugas menerima input dari user kemudian mengkategorikan input tersebut termasuk command atau ekspresi. 
+
+\begin{DoxyAuthor}{Author}
+Luqman A. Siswanto (13513024) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\hypertarget{class_logger_Description}{}\subsection{Description}\label{class_logger_Description}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_reader_a22be4123536f4d9a5432290fabb8971c}{}\index{Reader@{Reader}!Reader@{Reader}}
+\index{Reader@{Reader}!Reader@{Reader}}
+\subsubsection[{Reader}]{\setlength{\rightskip}{0pt plus 5cm}Reader\+::\+Reader (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reader} \&}]{r}
+\end{DoxyParamCaption}
+)}\label{class_reader_a22be4123536f4d9a5432290fabb8971c}
+
+
+Copy constructor kelas logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_reader}{Reader}} & \+: yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_reader_aa5bd7ae7e8c0e982124fac3289277990}{}\index{Reader@{Reader}!Is\+Equation@{Is\+Equation}}
+\index{Is\+Equation@{Is\+Equation}!Reader@{Reader}}
+\subsubsection[{Is\+Equation}]{\setlength{\rightskip}{0pt plus 5cm}bool Reader\+::\+Is\+Equation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_reader_aa5bd7ae7e8c0e982124fac3289277990}
+
+
+Mengembalikan predikat apakah sebuah string merupakan equation. 
+
+\begin{DoxyReturn}{Returns}
+bool -\/ jika true, maka string adalah equation 
+\end{DoxyReturn}
+\hypertarget{class_reader_ace806a7f7b055341c10af595fedcd5f4}{}\index{Reader@{Reader}!operator=@{operator=}}
+\index{operator=@{operator=}!Reader@{Reader}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Reader} \& Reader\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reader} \&}]{r}
+\end{DoxyParamCaption}
+)}\label{class_reader_ace806a7f7b055341c10af595fedcd5f4}
+
+
+Copy constructor kelas logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_reader}{Reader}} & \+: yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_reader_a418c58459e774307fce1d5cc93e23d37}{}\index{Reader@{Reader}!Read@{Read}}
+\index{Read@{Read}!Reader@{Reader}}
+\subsubsection[{Read}]{\setlength{\rightskip}{0pt plus 5cm}string Reader\+::\+Read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_reader_a418c58459e774307fce1d5cc93e23d37}
+
+
+Membaca perintah dari user sekaligus meng-\/update data member is\+Equation. 
+
+\begin{DoxyReturn}{Returns}
+string -\/ string yang berhasil dibaca 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Reader/Reader.\+h\item 
+Reader/Reader.\+cpp\end{DoxyCompactItemize}

@@ -1,8 +1,0 @@
-Sun Mar 15 12:47:41 2015
-> Perintah terakhir (command)   1 : undo 2
-> Perintah terakhir (command)   2 : show mem all
-> Perintah terakhir (command)   3 : undo 1
-> Perintah terakhir (command)   4 : show mem all
-> Perintah terakhir (command)   5 : view
-> Perintah terakhir (command)   6 : set prefiks
-> Perintah terakhir (command)   7 : view

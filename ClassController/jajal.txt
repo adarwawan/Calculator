@@ -1,4 +1,0 @@
-Sun Mar 15 12:29:46 2015
-> Perintah terakhir (command)   1 : show mem all
-> Perintah terakhir (command)   2 : show mem all
-> Perintah terakhir (command)   3 : view

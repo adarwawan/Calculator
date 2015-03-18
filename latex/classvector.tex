@@ -1,0 +1,304 @@
+\hypertarget{classvector}{}\section{vector$<$ T $>$ Class Template Reference}
+\label{classvector}\index{vector$<$ T $>$@{vector$<$ T $>$}}
+
+
+Vector adalah implementasi vector yang ekuivalen vector S\+T\+L C++.  
+
+
+
+
+{\ttfamily \#include $<$vector.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classvector_a00d237f22fd5eb1aa9a536993e82e54f}{}\hyperlink{classvector_a00d237f22fd5eb1aa9a536993e82e54f}{vector} ()\label{classvector_a00d237f22fd5eb1aa9a536993e82e54f}
+
+\begin{DoxyCompactList}\small\item\em Konstruktor kelas vector. \end{DoxyCompactList}\item 
+\hyperlink{classvector_a14efcceb0fa770e5cd88998d23d49767}{vector} (const \hyperlink{classvector}{vector}$<$ T $>$ \&)
+\begin{DoxyCompactList}\small\item\em Copy constructor kelas vector. \end{DoxyCompactList}\item 
+\hyperlink{classvector}{vector}$<$ T $>$ \& \hyperlink{classvector_ace0bae2999250693936d58b2530c323b}{operator=} (\hyperlink{classvector}{vector}$<$ T $>$)
+\begin{DoxyCompactList}\small\item\em Operator assignment kelas vector. \end{DoxyCompactList}\item 
+\hyperlink{classvector_a7bc236f547bb5debe890fa8ebaabe965}{$\sim$vector} ()
+\begin{DoxyCompactList}\small\item\em Operator assignment kelas vector. \end{DoxyCompactList}\item 
+int \hyperlink{classvector_a00d86ff0224b867efa96488fdfe3a163}{size} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan ukuran vector. \end{DoxyCompactList}\item 
+int \hyperlink{classvector_a18af0dd0fba070c03f0c92137016ea90}{max\+\_\+size} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan ukuran maksimal vector saat ini sebelum alokasi kembali. \end{DoxyCompactList}\item 
+void \hyperlink{classvector_ad216209d5c4f4c9df7e026eb539e1773}{resize} (int)
+\begin{DoxyCompactList}\small\item\em Mengubah ukuran vector. \end{DoxyCompactList}\item 
+int \hyperlink{classvector_a00c3fb56dd523269e333428be4b78b9c}{capacity} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan ukuran maksimal vector saat ini sebelum alokasi kembali. \end{DoxyCompactList}\item 
+bool \hyperlink{classvector_af342adf8e0f862f5d91b119dd108bf25}{empty} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan predikat apakah vector kosong. \end{DoxyCompactList}\item 
+T \& \hyperlink{classvector_a87628125f574ff26aa35e8c7eb726108}{operator\mbox{[}$\,$\mbox{]}} (int)
+\begin{DoxyCompactList}\small\item\em Mengembalikan isi kontainer pada indeks tertentu. \end{DoxyCompactList}\item 
+T \& \hyperlink{classvector_acb130730b5e99b862bb6770b9c33a6ac}{at} (int)
+\begin{DoxyCompactList}\small\item\em Mengembalikan isi kontainer pada indeks tertentu. \end{DoxyCompactList}\item 
+T \& \hyperlink{classvector_a60c0c3c2925224f41b2d8405bd138ebb}{front} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan isi kontainer paling awal. \end{DoxyCompactList}\item 
+T \& \hyperlink{classvector_a13d864f69391af4f471d111d68c19b9c}{back} ()
+\begin{DoxyCompactList}\small\item\em Mengembalikan isi kontainer paling akhir. \end{DoxyCompactList}\item 
+void \hyperlink{classvector_a44266e46c0784ef64b478ad9e931ee2e}{push\+\_\+back} (T)
+\begin{DoxyCompactList}\small\item\em Memasukkan item pada akhir kontainer. \end{DoxyCompactList}\item 
+void \hyperlink{classvector_aeec9e5d602d555d466a936310aa47866}{pop\+\_\+back} ()
+\begin{DoxyCompactList}\small\item\em Melepaskan item paling belakang vector. \end{DoxyCompactList}\item 
+void \hyperlink{classvector_acb86c331d5493acd8da68386292d5642}{swap} (\hyperlink{classvector}{vector}$<$ T $>$ \&)
+\begin{DoxyCompactList}\small\item\em Menukar kontainer vector beserta atributnya dengan vector lain. \end{DoxyCompactList}\item 
+\hypertarget{classvector_a1a91cd18e54c382af1097d630405398f}{}void \hyperlink{classvector_a1a91cd18e54c382af1097d630405398f}{clear} ()\label{classvector_a1a91cd18e54c382af1097d630405398f}
+
+\begin{DoxyCompactList}\small\item\em Mengkosongkan isi vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class vector$<$ T $>$}
+
+Vector adalah implementasi vector yang ekuivalen vector S\+T\+L C++. 
+
+\begin{DoxyAuthor}{Author}
+Luqman A. Siswanto (13513024) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0
+\end{DoxyVersion}
+\hypertarget{class_logger_Description}{}\subsection{Description}\label{class_logger_Description}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classvector_a14efcceb0fa770e5cd88998d23d49767}{}\index{vector@{vector}!vector@{vector}}
+\index{vector@{vector}!vector@{vector}}
+\subsubsection[{vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf vector}$<$ T $>$\+::{\bf vector} (
+\begin{DoxyParamCaption}
+\item[{const {\bf vector}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\label{classvector_a14efcceb0fa770e5cd88998d23d49767}
+
+
+Copy constructor kelas vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & \+: yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvector_a7bc236f547bb5debe890fa8ebaabe965}{}\index{vector@{vector}!````~vector@{$\sim$vector}}
+\index{````~vector@{$\sim$vector}!vector@{vector}}
+\subsubsection[{$\sim$vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf vector}$<$ T $>$\+::$\sim${\bf vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_a7bc236f547bb5debe890fa8ebaabe965}
+
+
+Operator assignment kelas vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & \+: yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classvector_acb130730b5e99b862bb6770b9c33a6ac}{}\index{vector@{vector}!at@{at}}
+\index{at@{at}!vector@{vector}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T \& {\bf vector}$<$ T $>$\+::at (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{classvector_acb130730b5e99b862bb6770b9c33a6ac}
+
+
+Mengembalikan isi kontainer pada indeks tertentu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ indeks vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference class T \+: item pada indeks tertentu 
+\end{DoxyReturn}
+\hypertarget{classvector_a13d864f69391af4f471d111d68c19b9c}{}\index{vector@{vector}!back@{back}}
+\index{back@{back}!vector@{vector}}
+\subsubsection[{back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T \& {\bf vector}$<$ T $>$\+::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_a13d864f69391af4f471d111d68c19b9c}
+
+
+Mengembalikan isi kontainer paling akhir. 
+
+\begin{DoxyReturn}{Returns}
+reference class T \+: item pada indeks paling belakang 
+\end{DoxyReturn}
+\hypertarget{classvector_a00c3fb56dd523269e333428be4b78b9c}{}\index{vector@{vector}!capacity@{capacity}}
+\index{capacity@{capacity}!vector@{vector}}
+\subsubsection[{capacity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int {\bf vector}$<$ T $>$\+::capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_a00c3fb56dd523269e333428be4b78b9c}
+
+
+Mengembalikan ukuran maksimal vector saat ini sebelum alokasi kembali. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ ukuran max vector 
+\end{DoxyReturn}
+\hypertarget{classvector_af342adf8e0f862f5d91b119dd108bf25}{}\index{vector@{vector}!empty@{empty}}
+\index{empty@{empty}!vector@{vector}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool {\bf vector}$<$ T $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_af342adf8e0f862f5d91b119dd108bf25}
+
+
+Mengembalikan predikat apakah vector kosong. 
+
+\begin{DoxyReturn}{Returns}
+bool \+: predikat kosong vector 
+\end{DoxyReturn}
+\hypertarget{classvector_a60c0c3c2925224f41b2d8405bd138ebb}{}\index{vector@{vector}!front@{front}}
+\index{front@{front}!vector@{vector}}
+\subsubsection[{front}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T \& {\bf vector}$<$ T $>$\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_a60c0c3c2925224f41b2d8405bd138ebb}
+
+
+Mengembalikan isi kontainer paling awal. 
+
+\begin{DoxyReturn}{Returns}
+reference class T \+: item pada indeks terawal 
+\end{DoxyReturn}
+\hypertarget{classvector_a18af0dd0fba070c03f0c92137016ea90}{}\index{vector@{vector}!max\+\_\+size@{max\+\_\+size}}
+\index{max\+\_\+size@{max\+\_\+size}!vector@{vector}}
+\subsubsection[{max\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int {\bf vector}$<$ T $>$\+::max\+\_\+size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_a18af0dd0fba070c03f0c92137016ea90}
+
+
+Mengembalikan ukuran maksimal vector saat ini sebelum alokasi kembali. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ ukuran max vector 
+\end{DoxyReturn}
+\hypertarget{classvector_ace0bae2999250693936d58b2530c323b}{}\index{vector@{vector}!operator=@{operator=}}
+\index{operator=@{operator=}!vector@{vector}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf vector}$<$ T $>$ \& {\bf vector}$<$ T $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf vector}$<$ T $>$}]{v}
+\end{DoxyParamCaption}
+)}\label{classvector_ace0bae2999250693936d58b2530c323b}
+
+
+Operator assignment kelas vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & \+: yang akan di-\/copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvector_a87628125f574ff26aa35e8c7eb726108}{}\index{vector@{vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!vector@{vector}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T \& {\bf vector}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{classvector_a87628125f574ff26aa35e8c7eb726108}
+
+
+Mengembalikan isi kontainer pada indeks tertentu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ indeks vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference class T \+: item pada indeks tertentu 
+\end{DoxyReturn}
+\hypertarget{classvector_aeec9e5d602d555d466a936310aa47866}{}\index{vector@{vector}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!vector@{vector}}
+\subsubsection[{pop\+\_\+back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf vector}$<$ T $>$\+::pop\+\_\+back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_aeec9e5d602d555d466a936310aa47866}
+
+
+Melepaskan item paling belakang vector. 
+
+I. S. vector tidak kosong \hypertarget{classvector_a44266e46c0784ef64b478ad9e931ee2e}{}\index{vector@{vector}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!vector@{vector}}
+\subsubsection[{push\+\_\+back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf vector}$<$ T $>$\+::push\+\_\+back (
+\begin{DoxyParamCaption}
+\item[{T}]{e}
+\end{DoxyParamCaption}
+)}\label{classvector_a44266e46c0784ef64b478ad9e931ee2e}
+
+
+Memasukkan item pada akhir kontainer. 
+
+Bila vector penuh, maka mengalokasikan memori tambahan sebesar default Size 
+\begin{DoxyParams}{Parameters}
+{\em class} & T \+: item yang akan dimasukkan \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvector_ad216209d5c4f4c9df7e026eb539e1773}{}\index{vector@{vector}!resize@{resize}}
+\index{resize@{resize}!vector@{vector}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ void {\bf vector}$<$ T $>$\+::resize (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{classvector_ad216209d5c4f4c9df7e026eb539e1773}
+
+
+Mengubah ukuran vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ukuran} & vector tujuan \\
+\hline
+\end{DoxyParams}
+\hypertarget{classvector_a00d86ff0224b867efa96488fdfe3a163}{}\index{vector@{vector}!size@{size}}
+\index{size@{size}!vector@{vector}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int {\bf vector}$<$ T $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classvector_a00d86ff0224b867efa96488fdfe3a163}
+
+
+Mengembalikan ukuran vector. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ ukuran vector 
+\end{DoxyReturn}
+\hypertarget{classvector_acb86c331d5493acd8da68386292d5642}{}\index{vector@{vector}!swap@{swap}}
+\index{swap@{swap}!vector@{vector}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf vector}$<$ T $>$\+::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf vector}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}\label{classvector_acb86c331d5493acd8da68386292d5642}
+
+
+Menukar kontainer vector beserta atributnya dengan vector lain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & \+: vector yang akan ditukar dengan object this \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Vector/vector.\+h\end{DoxyCompactItemize}

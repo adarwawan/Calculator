@@ -1,4 +1,0 @@
-compile : mClassController.cpp ClassController.cpp ../Reader/Reader.cpp ../Equation/Equation.cpp ../Equation/Expression.cpp ../Token/Token.cpp ../Number/Number.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Saver/Saver.cpp ../Logger/Logger.cpp ../Logger/Log.cpp ../Logic/Logic.cpp ../EquationException/EquationException.cpp
-  g++ mClassController.cpp ClassController.cpp ../Reader/Reader.cpp ../Equation/Equation.cpp ../Equation/Expression.cpp ../Token/Token.cpp ../Number/Number.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Saver/Saver.cpp ../Logger/Logger.cpp ../Logger/Log.cpp ../Logic/Logic.cpp ../EquationException/EquationException.cpp -o e
-run : e.exe
-  e.exe

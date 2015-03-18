@@ -1,4 +1,4 @@
-compile : mEquation.cpp Equation.cpp Expression.cpp ../Token/Token.cpp ../Number/Number.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Logic/Logic.cpp ../EquationException/EquationException.cpp
-  g++ mEquation.cpp Equation.cpp Expression.cpp ../Token/Token.cpp ../Number/Number.cpp ../Number/NumberArab.cpp ../Number/NumberRomawi.cpp ../Extension/Extension.cpp ../Logic/Logic.cpp ../EquationException/EquationException.cpp -o e
+compile : mEquation.cpp Equation.cpp Expression.cpp ../Token/Token.cpp ../Token/Number.cpp ../Token/NumberArab.cpp ../Token/NumberRomawi.cpp ../Extension/Extension.cpp ../Token/Logic.cpp EquationException.cpp
+  g++ mEquation.cpp Equation.cpp Expression.cpp ../Token/Token.cpp ../Token/Number.cpp ../Token/NumberArab.cpp ../Token/NumberRomawi.cpp ../Extension/Extension.cpp ../Token/Logic.cpp EquationException.cpp -o e
 run : e.exe
   e.exe

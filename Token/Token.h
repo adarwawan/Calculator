@@ -49,6 +49,8 @@ public :
   bool GetIsOperator();
   /**
   * @brief Setter untuk mengubah nilai _symToken.
+  * @brief [I.S] String S merupakan simbol token yang valid.
+  * @brief [F.S] Simbol token akan terset dengan S.
   * @param S - nilai _symToken yang akan dimasukkan.
   **/
   void SetSymToken(string S);
@@ -66,7 +68,8 @@ private :
   bool _IdentifyToken();
   /**
   * @brief Set nilai _prior berdasarkan _symToken (untuk operator).
-  * @return int - nilai _prior.
+  * @brief [I.S] Token memiliki simbol token yang valid.
+  * @brief [F.S] Priority token akan terset berdasarkan simbol token.
   **/
   void _IdentifyPrior();
   string _symToken; // Simbol Token.

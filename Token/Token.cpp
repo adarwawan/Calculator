@@ -57,8 +57,10 @@ string Token::GetSymToken() const {
 bool Token::GetIsOperator() {
   return _isOperator;
 }
-  /**
+/**
   * @brief Setter untuk mengubah nilai _symToken.
+  * @brief [I.S] String S merupakan simbol token yang valid.
+  * @brief [F.S] Simbol token akan terset dengan S.
   * @param S - nilai _symToken yang akan dimasukkan.
   **/
 void Token::SetSymToken(string S) {
@@ -79,7 +81,8 @@ bool Token::_IdentifyToken() {
 }
   /**
   * @brief Set nilai _prior berdasarkan _symToken (untuk operator).
-  * @return int - nilai _prior.
+  * @brief [I.S] Token memiliki simbol token yang valid.
+  * @brief [F.S] Priority token akan terset berdasarkan simbol token.
   **/
 void Token::_IdentifyPrior() {
   if(_isOperator) {

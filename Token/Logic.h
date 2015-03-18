@@ -5,7 +5,7 @@
 #define Logic_H
 
 #include <iostream>
-#include "Token.h"
+#include "../Token/Token.h"
 
 using namespace std;
 /**
@@ -56,6 +56,8 @@ public:
   int GetLogic();
   /**
   * @brief Setter untuk mengubah nilai logic.
+  * @brief [I.S] integer i terdefinisi (0 atau 1).
+  * @brief [F.S] _logic diassign dengan nilai i.
   * @param S - nilai logic yang akan dimasukkan.
   **/
   void SetLogic(int i);
@@ -89,12 +91,14 @@ public:
   Logic& operator^(const Logic& L);
   /**
   * @brief Mengubah nilai logika dalam bentuk string (TRUE atau FALSE) menjadi bentuk integer (1 & 0).
+  * @brief Prekondisi : string terdefinisi (TRUE atau FALSE)
   * @param S - nilai logika dalam string.
   * @return i - nilai logika dalam integer.
   **/
   int toInt(string);
   /**
   * @brief Mengubah nilai logika dalam bentuk bentuk integer (1 & 0) menjadi string (TRUE atau FALSE).
+  * @brief Prekondisi : int terdefinisi (0 atau 1)
   * @param i - nilai logika dalam integer.
   * @return S - nilai logika dalam string.
   **/

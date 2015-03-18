@@ -99,7 +99,7 @@ Logic& Logic::operator|(const Logic& L) {
   * @return L' = L1 ^ L2.
   **/
 Logic& Logic::operator^(const Logic& L) {
-  return *(new Logic(_logic ^ L._logic));
+  return *(new Logic(!(_logic) != !(L._logic)));
 }
   /**
   * @brief Mengubah nilai logika dalam bentuk string (TRUE atau FALSE) menjadi bentuk integer (1 & 0).

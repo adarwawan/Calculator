@@ -117,7 +117,7 @@ void Expression::_inToPostfix() {
     if(t->GetIsOperator()) {
       if(t->GetSymToken()[0] == '~') {
         char c = stemp[0];
-        if((c < '0' || c > '9') && (c != '-' || stemp.size()<=1) && (c != '(') && (c != 't') && (c != 'f') && (c != 'T') && (c != 'F') && (c != '~'))
+        if((c < '0' || c > '9') && (c != '-' || stemp.size()<=1) && (c != '(') && ((c < 'a') || (c > 'z')) && ((c < 'A') || (c > 'Z')) && (c != '~'))
           throw(EquationException(EquationException::IllegalUsingOperator));
       }
       if((t->GetSymToken())[0] == ')') {

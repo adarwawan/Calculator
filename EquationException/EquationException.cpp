@@ -12,7 +12,7 @@ const int EquationException::EmptyEquation        = 5; // Jika mencoba menyelesa
 
 string EquationException::_message[] = {string("Angka Romawi hanya diperbolehkan pada batas nilai[1..3999]"),
                                         string("Tidak diijinkan pembagian dengan nol"),
-                                        string("Tidak diijinkan operasi modulo oleh nol"),
+                                        string("Tidak diijinkan operasi modulo oleh bilangan non positif"),
                                         string("Operator yang digunakan tidak terdefinisi"),
                                         string("Penggunaan operator tidak sesuai"),
                                         string("Equation kosong, tidak ada yang diselesaikan")

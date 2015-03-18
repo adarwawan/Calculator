@@ -1,49 +1,84 @@
 #include "NumberRomawi.h"
 
 using namespace std;
-
+  /**
+  * @brief Konstruktor kelas NumberRomawi.
+  *
+  **/
 NumberRomawi::NumberRomawi() : Number("X") {
 	_nilai = 1;
 }
-
+  /**
+  * @brief Konstruktor kelas Number dengan parameter.
+  * @param s - String yang akan menjadi parameter Number.
+  **/
 NumberRomawi::NumberRomawi(string s): Number(s){
 	_nilai = toInt(s);
 }
-
+  /**
+  * @brief Konstruktor kelas Number dengan parameter.
+  * @param _n - integer yang akan di assign ke _nilai
+  **/
 NumberRomawi::NumberRomawi(int _n) : Number(toString(_n)) {
 	_nilai = _n;
 }
-
+  /**
+  * @brief Destruktor kelas NumberRomawi.
+  **/
 NumberRomawi::~NumberRomawi(){
 
 }
-
+  /**
+  * @brief operator* untuk mengali nilai objek dengan nilai dari Number n.
+  * @param n - Number yang nilainya akan dikali.
+  * @return n' - Objek Number yang telah diassign dari n.
+  **/
 Number& NumberRomawi::operator* (const Number& N){
 	Number& N1 = *(new NumberRomawi(_nilai * N._nilai));
 	return N1;
 }
-
+  /**
+  * @brief operator+ untuk menambahkan nilai objek dengan nilai dari Number n.
+  * @param n - Number yang nilainya akan ditambah.
+  * @return n' - Objek Number yang telah diassign dari n.
+  **/
 Number& NumberRomawi::operator+ (const Number& N){
 	Number& N1 = *(new NumberRomawi(_nilai + N._nilai));
 	return N1;
 }
-
+  /**
+  * @brief operator- untuk mengurangi nilai objek dengan nilai dari Number n.
+  * @param n - Number yang nilainya akan dikurang.
+  * @return n' - Objek Number yang telah diassign dari n.
+  **/
 Number& NumberRomawi::operator- (const Number& N){
 	Number& N1 = *(new NumberRomawi(_nilai - N._nilai));
 	return N1;
 }
-
+  /**
+  * @brief operator/ untuk membagi nilai objek dengan nilai dari Number n.
+  * @param n - Number yang nilainya akan dibagi.
+  * @return n' - Objek Number yang telah diassign dari n.
+  **/
 Number& NumberRomawi::operator/ (const Number& N){
 	Number& N1 = *(new NumberRomawi(_nilai / N._nilai));
 	return N1;
 }
-
+  /**
+  * @brief operator% untuk modulo nilai objek dengan nilai dari Number n.
+  * @param n - Number yang nilainya menjadi modulator.
+  * @return n' - Objek Number yang telah diassign dari n.
+  **/
 Number& NumberRomawi::operator% (const Number& N){
   /* Sesuai Euclidean Definition nilai modulo selalu lebih besar atau sama dengan nol */
 	Number& N1 = *(new NumberRomawi(((_nilai % N._nilai)+N._nilai) % N._nilai));
 	return N1;
 }
-
+  /**
+  * @brief fungsi yang merubah string menjadi integer
+  * @param s - string yang nantinya akan dirubah menjadi integer.
+  * @return i - integer dari string n.
+  **/    
 int NumberRomawi::toInt(string s){
 	int satuan = 0;
 	int puluhan = 0;
@@ -90,6 +125,11 @@ int NumberRomawi::toInt(string s){
 	int nilai = ribuan + ratusan + puluhan + satuan;
 	return nilai;
 }
+  /**
+  * @brief fungsi yang merubah integer menjadi string
+  * @param n - nilai yang nantinya akan dirubah menjadi string.
+  * @return s - string dari integer n.
+  **/
 string NumberRomawi::toString(int n) {
   char rom[] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M', '#', '#'};
   string ret;

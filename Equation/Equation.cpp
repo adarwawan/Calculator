@@ -89,14 +89,17 @@ void Equation::SolveLogical() {
   }
   while(!_stackToken.empty()) {
     opr = (Token *)_stackToken.top(); _stackToken.pop();
-    if(opr->GetIsOperator()) { // hitung logika
-      if(opr->GetPrior() <= 6) {
+    if(opr->GetIsOperator()) {
+      if(res.empty())
+        throw(EquationException(EquationException::IllegalUsingOperator));
+      if(opr->GetPrior() <= 6) { // hitung logika
         opl1 = (Logic *)res.top(); res.pop();
         
         if(opl1->GetPrior() != 0)
           throw(EquationException(EquationException::IllegalUsingOperator));
         
         if(opr->GetSymToken()[0] == '~') {// kasus operator unary negasi (~)
+          cout << opr-> GetSymToken() << " " << opl1->GetSymToken() << " = " << (~(*opl1)).GetSymToken() << endl;
           (*opl1) = ~(*opl1);
           res.push(opl1);
           continue;

@@ -32,7 +32,7 @@ void Expression::_stringToTokens(const string& _strEq, int modeEquation, int mod
   int pos = 0, len = 0, i = 0;
   bool op = false;
   while(i < _strEq.length()) {
-    if(_strEq[i] == ' ' || _strEq[i] == '\t' || _strEq[i] == '\n') {
+    if(_strEq[i] == ' ' || _strEq[i] == '\t' || _strEq[i] == '\n' || _strEq[i] == '~') {
       if(op) {
         if(modeEquation == Extension::NumberMode) {
           if(modeNumber == Extension::ArabMode)
@@ -46,8 +46,8 @@ void Expression::_stringToTokens(const string& _strEq, int modeEquation, int mod
           if(modeEquation == Extension::LogicMode)
           {
             bool isLogic = false;
-            char LogicCheck[] = {'T', 't', 'F', 'f', '~', '&', '^', '|'};
-            for(int i = 0; i<8 && !isLogic; i++)
+            char LogicCheck[] = {'T', 't', 'F', 'f', '&', '^', '|'};
+            for(int i = 0; i<7 && !isLogic; i++)
               isLogic = (_strEq[pos] == LogicCheck[i]);
             if(isLogic)
               _stackToken.push(new Logic(_strEq.substr(pos, len)));
@@ -64,8 +64,10 @@ void Expression::_stringToTokens(const string& _strEq, int modeEquation, int mod
         }
         op = false;
       }
+      if(_strEq[i] == '~')
+        _stackToken.push(new Logic("~"));
     }
-     else {
+    else {
       if(!op) {
         pos = i; len = 0;
         op = true;
@@ -108,10 +110,16 @@ void Expression::_stringToTokens(const string& _strEq, int modeEquation, int mod
 void Expression::_inToPostfix() {
 /* mengubah ekspresi infix menjadi prefix */
   stack<Token *> pre, opr;
+  string stemp = "#";
   while(!_stackToken.empty()) {
     Token * t = _stackToken.top();
     _stackToken.pop();
     if(t->GetIsOperator()) {
+      if(t->GetSymToken()[0] == '~') {
+        char c = stemp[0];
+        if((c < '0' || c > '9') && (c != '-' || stemp.size()<=1) && (c != '(') && (c != 't') && (c != 'f') && (c != 'T') && (c != 'F') && (c != '~'))
+          throw(EquationException(EquationException::IllegalUsingOperator));
+      }
       if((t->GetSymToken())[0] == ')') {
         opr.push(t);
         continue;
@@ -140,6 +148,7 @@ void Expression::_inToPostfix() {
     }
     else
       pre.push(t);
+    stemp = t->GetSymToken();
   }
   while(!opr.empty()) {
     pre.push(opr.top());

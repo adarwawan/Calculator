@@ -4,38 +4,115 @@
 #include <algorithm>
 #include <cassert>
 
+/**
+* @class vector
+* @author Luqman A. Siswanto (13513024)
+* @version 1.0
+* 
+* @section Description
+* @brief Vector adalah implementasi vector yang ekuivalen vector STL C++
+*
+**/
 template <class T>
 class vector {
 public:
+  /**
+  * @brief Konstruktor kelas vector.
+  **/
   vector();
+  /**
+  * @brief Copy constructor kelas vector.
+  * @param vector : yang akan di-copy
+  **/
   vector(const vector<T>&);
+  /**
+  * @brief Operator assignment kelas vector.
+  * @param vector : yang akan di-copy
+  **/
   vector<T>& operator= (vector<T>);
+  /**
+  * @brief Operator assignment kelas vector.
+  * @param vector : yang akan di-copy
+  **/
   ~vector();
   
-  // capacity
+  /**
+  * @brief Mengembalikan ukuran vector.
+  * @return int - ukuran vector
+  **/
   int size();
+  /**
+  * @brief Mengembalikan ukuran maksimal vector saat ini sebelum alokasi kembali.
+  * @return int - ukuran max vector
+  **/
   int max_size();
+  /**
+  * @brief Mengubah ukuran vector
+  * @param ukuran vector tujuan
+  **/
   void resize(int);
+  /**
+  * @brief Mengembalikan ukuran maksimal vector saat ini sebelum alokasi kembali.
+  * @return int - ukuran max vector
+  **/
   int capacity();
+  /**
+  * @brief Mengembalikan predikat apakah vector kosong.
+  * @return bool : predikat kosong vector 
+  **/
   bool empty();
   
   // element access
+  /**
+  * @brief Mengembalikan isi kontainer pada indeks tertentu
+  * @param int - indeks vector
+  * @return reference class T : item pada indeks tertentu
+  **/
   T& operator[](int);
+  /**
+  * @brief Mengembalikan isi kontainer pada indeks tertentu
+  * @param int - indeks vector
+  * @return reference class T : item pada indeks tertentu
+  **/
   T& at(int);
+  /**
+  * @brief Mengembalikan isi kontainer paling awal
+  * @return reference class T : item pada indeks terawal
+  **/
   T& front();
+  /**
+  * @brief Mengembalikan isi kontainer paling akhir
+  * @return reference class T : item pada indeks paling belakang
+  **/
   T& back();
   
   // modifiers
+  /**
+  * @brief Memasukkan item pada akhir kontainer
+  * @brief Bila vector penuh, maka mengalokasikan memori tambahan sebesar default Size
+  * @param class T : item yang akan dimasukkan
+  **/
   void push_back(T);
+  /**
+  * @brief Melepaskan item paling belakang vector
+  * @brief I. S. vector tidak kosong
+  **/
   void pop_back();
+  /**
+  * @brief Menukar kontainer vector beserta atributnya dengan vector lain
+  * @param vector : vector yang akan ditukar dengan object this
+  **/
   void swap(vector<T>&);
+  /**
+  * @brief Mengkosongkan isi vector
+  **/
   void clear();
   
 private:
-  static const int _defaultSize;
-  T* _tab;
-  int _maxSize;
-  int _size;
+  static const int _defaultSize;  // konstanta ukuran default vector
+  T* _tab;                        // kontainer berupa array of class T 
+  int _maxSize;                   // ukuran maksimal vector saat ini
+  int _size;                      // ukuran vector sekarang yang terisi
 };
 
 
@@ -88,6 +165,8 @@ void vector<T>::resize(int n) {
   int block = n / _defaultSize + 1;
   delete[] _tab;
   _tab = new T[block * _defaultSize];
+  _size = 0;
+  _maxSize = block * _defaultSize;
 }
 
 template <class T>

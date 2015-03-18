@@ -59,7 +59,7 @@ ClassController::~ClassController() {
   delete _logger;
 }
 
-void ClassController::ExecuteExpression(string buffer) {
+void ClassController::ExecuteExpression(string& buffer) {
   Equation solver(buffer, _expressionMode, _equationMode, _numberMode);
   if(_equationMode == Extension::NumberMode) {
     solver.SolveMathematical();
@@ -68,6 +68,7 @@ void ClassController::ExecuteExpression(string buffer) {
   } else {
     assert(false);
   }
+  buffer += " = " + solver.GetResult();
   printf("%s\n", solver.GetResult().c_str());
 }
 

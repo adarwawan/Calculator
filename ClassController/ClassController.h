@@ -45,7 +45,7 @@ public:
   * @brief Mengeksekusi ekspresi yang dimasukkan oleh user.
   * @param string - masukan string ekspresi yang akan dieksekusi.
   **/
-  void ExecuteExpression(string);
+  void ExecuteExpression(string&);
   /**
   * @brief Mengeksekusi command yang dimasukkan oleh user.
   * @param string - masukan string command yang akan dieksekusi.
@@ -109,4 +109,4 @@ private:
   Logger* _logger;      // penyimpan perintah yang pernah dimasukkan user
 };
 
-#endif
+#endif  // __ClassController_H_

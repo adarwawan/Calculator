@@ -5,7 +5,7 @@
 #define Logic_H
 
 #include <iostream>
-#include "../Token/Token.h"
+#include "Token.h"
 
 using namespace std;
 /**

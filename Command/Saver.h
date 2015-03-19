@@ -11,7 +11,7 @@
 #include <cstdio>
 #include <cmath>
 #include <cassert>
-#include "../Logger/Logger.h"
+#include "Logger.h"
 
 using namespace std;
 /**

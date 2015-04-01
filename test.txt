@@ -1,0 +1,8 @@
+Thu Mar 26 02:22:10 2015
+> Perintah terakhir (command)   1 : show mem all
+> Perintah terakhir (command)   2 : undo 3
+> Perintah terakhir (command)   3 : show mem 2
+> Perintah terakhir (command)   4 : show mem all
+> Perintah terakhir (equation)  5 : 46 + 6 = 52
+> Perintah terakhir (equation)  6 : 24 * 24 = 576
+> Perintah terakhir (equation)  7 : ( 19 + 5 ) = 24

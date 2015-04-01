@@ -1,4 +1,4 @@
-compile : Reader/Reader.cpp Equation/Equation.cpp Equation/Expression.cpp Equation/EquationException.cpp Token/Token.cpp Token/Number.cpp Token/NumberArab.cpp Token/NumberRomawi.cpp Extension/Extension.cpp Command/Saver.cpp Command/Logger.cpp Command/Log.cpp Token/Logic.cpp Command/ClassController.cpp Calculator.cpp
+compile : Command/Reader.cpp Equation/Equation.cpp Equation/Expression.cpp Equation/EquationException.cpp Token/Token.cpp Token/Number.cpp Token/NumberArab.cpp Token/NumberRomawi.cpp Extension/Extension.cpp Command/Saver.cpp Command/Logger.cpp Command/Log.cpp Token/Logic.cpp Command/ClassController.cpp Calculator.cpp
   g++ Command/Reader.cpp Equation/Equation.cpp Equation/Expression.cpp Equation/EquationException.cpp Token/Token.cpp Token/Number.cpp Token/NumberArab.cpp Token/NumberRomawi.cpp Extension/Extension.cpp Command/Saver.cpp Command/Logger.cpp Command/Log.cpp Token/Logic.cpp Command/ClassController.cpp Calculator.cpp -o Calculator
 run : Calculator.exe
   Calculator.exe
